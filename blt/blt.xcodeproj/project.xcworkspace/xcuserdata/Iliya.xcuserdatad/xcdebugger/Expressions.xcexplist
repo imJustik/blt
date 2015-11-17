@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Hud.addHealth(Int) -&gt; ():Hud.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "hl.position">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Singleplay.didMoveToView(SKView) -&gt; ():Singleplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "States.sharedInstance.score">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Hud.(addScore in _FB8CC26891015A91CA4E5BB10429CED0)() -&gt; ():Hud.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "CGRectGetMidX(UIScreen.mainScreen().bounds)+20">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
