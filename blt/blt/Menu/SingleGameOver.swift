@@ -8,8 +8,12 @@ class SingleGameOver: SKNode {
         fogging.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds), y: CGRectGetMidY(UIScreen.mainScreen().bounds))
         fogging.zPosition = 10
         
+        let totalBolts = TotalBolts()
+        fogging.addChild(totalBolts)
+        
         let goLabel = SKLabelNode(fontNamed: "Futura Md BT Bold")
         goLabel.text = "GAME OVER"
+        goLabel.fontSize = 27
         goLabel.position = CGPoint(x: 0, y: CGRectGetMidY(fogging.frame)/3)
         fogging.addChild(goLabel)
         

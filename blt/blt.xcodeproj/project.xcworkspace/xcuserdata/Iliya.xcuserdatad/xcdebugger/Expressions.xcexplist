@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "Hud.addHealth(Int) -&gt; ():Hud.swift">
+         contextName = "Buy.createBoltButton(Bool) -&gt; ():Buy.swift">
          <PersistentStrings>
             <PersistentString
-               value = "hl.position">
+               value = "empyButton">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,10 +19,75 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Hud.addHealth(Int) -&gt; ():Hud.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "hl.position">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Hud.(addScore in _FB8CC26891015A91CA4E5BB10429CED0)() -&gt; ():Hud.swift">
          <PersistentStrings>
             <PersistentString
                value = "CGRectGetMidX(UIScreen.mainScreen().bounds)+20">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ChooseBuy.(clickOnitem in _E6C7A294985064F51D278E33D4E38D19)(SKSpriteNode) -&gt; ():ChooseBuy.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "item.texture?.description">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Buy.init(title : String, texture : SKTexture, boltCost : Int, moneyCost : Int, size : CGSize) -&gt; Buy:Buy.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "empyButton">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Buy.didMoveToView(SKView) -&gt; ():Buy.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "icon">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Settings.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():Settings.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nodeAtPoint(touchLocation)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ChooseBuy.(generateIcons in _E6C7A294985064F51D278E33D4E38D19)() -&gt; ():ChooseBuy.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "iconMass">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ChooseBuy.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():ChooseBuy.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "IconsBolt.Dick[&quot;name&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "&quot;\&quot;&quot; + String(IconsBolt.Bolt[&quot;name&quot;]) + &quot;\&quot;&quot;">
+            </PersistentString>
+            <PersistentString
+               value = "nodeAtPoint(touchLocation).name">
+            </PersistentString>
+            <PersistentString
+               value = "String(nodeAtPoint(touchLocation).name!)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

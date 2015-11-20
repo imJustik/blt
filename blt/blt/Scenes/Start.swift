@@ -1,5 +1,6 @@
 import SpriteKit
 
+
 class Start: SKScene {
     private var singlePlayButton = SKSpriteNode(imageNamed: "Singleplay white")
     private var multiPlayButton = SKSpriteNode(imageNamed: "Multiplay white")
@@ -80,7 +81,7 @@ class Start: SKScene {
             case "multiPlayButton"?:
                 createMultyplayButton(true)
                 // case "aboutMenu"?: startMenu.createAboutButtonButton(true)
-            case "exitButton"?: print("exti")
+            case "exitButton"?: UIControl().sendAction(Selector("suspend"), to: UIApplication.sharedApplication(), forEvent: nil)
             case "settingsButton"?:
                 createSettingsButton(true)
             default: print("miss klick")
@@ -111,10 +112,31 @@ class Start: SKScene {
                 
             case "settingsButton"?:
                 createSettingsButton(false)
-                
+                let scene = Settings(size:size)
+                self.view?.presentScene(scene)
             default: print("def")
             }
 
         }
     }
+}
+
+extension SKSpriteNode {
+    func getImageName() -> String {
+        let description = self.texture?.description
+        var result = ""
+        var index = [Int]()
+        var i = 0
+        for c in description!.characters { //определим индексы одинарных ковычек
+            if c == "'" {
+                index.append(i)
+            }
+            i++
+        }
+        for var j = index[0]+1; j < index[1]; j++ {
+            result += String(description![description!.startIndex.advancedBy(j)])
+        }
+        return result
+    }
+    
 }

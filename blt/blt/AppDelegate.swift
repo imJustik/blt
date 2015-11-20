@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADBannerViewDelegate  {
     let controller = Controller()
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         controller.view = RootView(frame: UIScreen.mainScreen().bounds)
-        (controller.view as! SKView).presentScene(Singleplay())
+        (controller.view as! SKView).presentScene(Settings())
         //        Appodeal.initializeWithApiKey("4d4cb52ea7677ed29775f394be7c413f365c257e31a808ee", types: AppodealAdType.All)
         window = UIWindow(frame: controller.view.bounds)
         window!.rootViewController = controller

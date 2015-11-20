@@ -55,8 +55,9 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
             hud.addHealth(currentHealth)
             
             if currentHealth == 0 {
+                //background.closeGrid()
                 States.sharedInstance.saveState() //сохраняем статистику
-                
+                States.sharedInstance.saveTotalBolts()
                 timerCreateBolt?.invalidate()
                 timerCreateBolt = nil
                 
@@ -163,6 +164,7 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
         
         if (firstBody.categoryBitMask == BitMask.Bolt) && ( secondBody.categoryBitMask == BitMask.v2) {
             States.sharedInstance.score++
+            States.sharedInstance.totalBolts++
             hud.updateScore()
         }
         

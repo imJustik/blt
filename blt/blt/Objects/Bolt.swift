@@ -26,11 +26,11 @@ class Bolt: GameObjects {
         case BoltTypes.Psevdo: mas = -45
         case BoltTypes.Dick: mas = -49
         default: mas = -50
-            
         }
         sprite.physicsBody?.mass = mas
         physicsBody!.categoryBitMask = BitMask.Bolt
         physicsBody!.collisionBitMask =  BitMask.Foot | BitMask.downWall
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

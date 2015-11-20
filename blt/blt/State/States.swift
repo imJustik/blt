@@ -11,9 +11,11 @@ class States {
     var fragReady = false
     var firstStart = false
     var countLoose = 0
+    var totalBolts = 0
+    let keychain = KeychainSwift()
     
     // Types 
-    var boltType: String = BoltTypes.Bolt
+    var boltType: String = BoltTypes.Psevdo
     var bgType: String = BgTypes.Day
     var officeType: String = OfficeTypes.Office
     var playerType: String = PlayerTypes.Men
@@ -41,13 +43,16 @@ class States {
         
         // Load game state
         if defaults.valueForKey("boltType") != nil {
-           boltType = defaults.valueForKey("boltType") as! String
+           //boltType = defaults.valueForKey("boltType") as! String
         }
         if defaults.valueForKey("bgType") != nil {
            bgType = defaults.valueForKey("bgType") as! String
         }
         highScore = defaults.integerForKey("highScore")
         firstStart = defaults.boolForKey("firstFlag")
+        if keychain.get("totalBolts") != nil {
+            totalBolts = Int(keychain.get("totalBolts")!)!
+        }
     }
     func saveState() {
         // Update highScore if the current score is greater
@@ -59,6 +64,10 @@ class States {
         defaults.setValue(bgType, forKey:"bgType")
         defaults.setBool(firstStart, forKey: "firstFlag")
         NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    func saveTotalBolts(){
+        keychain.delete("totalBolts")
+        keychain.set(String(totalBolts), forKey: "totalBolts")
     }
     
     func addAnimation(){
