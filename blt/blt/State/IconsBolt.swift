@@ -4,32 +4,33 @@
 3) добавить в функцию reload 
 */
 
-class IconsBolt:Types {
-    static var Bolt = ["name":"Bolt metal","unlocked":true,"productId":"11test"]
-    static var Pink = ["name":"Bolt pink","unlocked":true,"productId":"22test"]
-    static var Dick = ["name":"Bolt dick","unlocked":false,"productId":"33test"]
+class IconsBolt {
+    static var Bolt : [String:Any] = ["name":"Bolt metal","image":"Bolt metal","status":ElementStatus.Bolt,"productId":"11test","costBolt":100, "costMoney": 5]
+    static var Pink : [String:Any] = ["name":"Bolt metal","image":"Bolt pink","status":ElementStatus.Psevdo,"productId":"22test","costBolt":200, "costMoney": 5]
+    static var Dick : [String:Any] = ["name":"Bolt metal","image":"Bolt dick","status":ElementStatus.Dick,"productId":"33test","costBolt":300, "costMoney": 5]
+
     
 //true - элемент разблокирован
 //false - элемент заблокирован
 
-    static func returnBolts() -> [[String:AnyObject]] {
-        let mass : [[String:AnyObject]] = [IconsBolt.Bolt,IconsBolt.Pink,IconsBolt.Dick]
+    static func returnBolts() -> [[String:Any]] {
+        let mass : [[String:Any]] = [IconsBolt.Bolt,IconsBolt.Pink,IconsBolt.Dick]
     return mass
     }
     
-    static func reload() {
-        Bolt = ["name":"Bolt metal","unlocked":true,"productId":"11test"]
-        Pink = ["name":"Bolt pink","unlocked":true,"productId":"22test"]
-        Dick = ["name":"Bolt dick","unlocked":false,"productId":"33test"]
-        
+    static func setSelect() {
+         IconsBolt.Bolt["status"] = Status.open
+         IconsBolt.Pink["status"] = Status.open
+         IconsBolt.Dick["status"] = Status.locked
         switch States.sharedInstance.boltType {
         case BoltTypes.Bolt:
-            Bolt["name"] = "Bolt metal black"
+            IconsBolt.Bolt["status"] = Status.select
         case BoltTypes.Psevdo:
-            Pink["name"] = "Bolt pink black"
+            IconsBolt.Pink["status"] = Status.select
         case BoltTypes.Dick:
-            Dick["name"] = "Bolt dick black"
+           IconsBolt.Dick["status"] = Status.select
         default: break
         }
+
     }
 }

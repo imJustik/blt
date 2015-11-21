@@ -8,6 +8,7 @@ class Buy: SKScene {
     private var texture = SKTexture()
     private var boltCost = 999
     private var moneyCost = 999
+    private var productId = String()
     
     private var fogging = SKSpriteNode()
     
@@ -18,17 +19,20 @@ class Buy: SKScene {
     private var boltCostButton = SKLabelNode(fontNamed: "Futura Md BT Medium")
     private var moneyCostButton = SKLabelNode(fontNamed: "Futura Md BT Medium")
     
+    private var flag :Bool? = nil //false - болты true - деньги
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
-    init(title: String, texture: SKTexture, boltCost: Int, moneyCost: Int, size: CGSize){
+    init(title: String, texture: SKTexture, boltCost: Int, moneyCost: Int, productId:String, size: CGSize){
         super.init(size: size)
         self.title = title
         self.texture = texture
         self.boltCost = boltCost
         self.moneyCost = moneyCost
+        self.productId = productId
     }
 
    
@@ -114,9 +118,7 @@ class Buy: SKScene {
             textMoneyBolt.text = String(moneyCost)
             moneyButton.addChild(textMoneyBolt)
             fogging.addChild(moneyButton)
-
-        
-    }
+        }
     
     private func addButtons(){
         let buyButton = SKSpriteNode(imageNamed: "Button buy")
@@ -141,10 +143,22 @@ class Buy: SKScene {
                 empyButton.removeFromParent()
                 createBoltButton(true)
                 createMoneyButton(false)
+                flag = false
             case "moneyButton"?:
                 moneyButton.removeFromParent()
                 createBoltButton(false)
                 createMoneyButton(true)
+                flag = true
+            case "BuyButton"?:
+                if let fl = flag {
+                    if fl == false {
+                        //покупка за болты
+                        print("купили за болты")
+                    } else {
+                        //покупка за деньги
+                        print("купили за деньги")
+                    }
+                }
             default: print("def")
 
         }

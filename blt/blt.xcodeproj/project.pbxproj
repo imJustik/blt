@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4502EE041BF4ABFC00ECBAAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4502EE031BF4ABFC00ECBAAB /* AppDelegate.swift */; };
+		4507AD8B1BFF849D005EB464 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4507AD8A1BFF849D005EB464 /* Icon.swift */; };
+		4507AD8D1BFFC720005EB464 /* ProductsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4507AD8C1BFFC720005EB464 /* ProductsType.swift */; };
+		4507AD8F1C00D067005EB464 /* ElementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4507AD8E1C00D067005EB464 /* ElementStatus.swift */; };
 		4547BCB41BFDBB6700B75D4E /* ChooseBuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547BCB31BFDBB6700B75D4E /* ChooseBuy.swift */; };
 		4547BCB61BFDF29000B75D4E /* IconsBolt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547BCB51BFDF29000B75D4E /* IconsBolt.swift */; };
 		4547BCB81BFF418D00B75D4E /* IconsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547BCB71BFF418D00B75D4E /* IconsWindow.swift */; };
-		4547BCBA1BFF568D00B75D4E /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547BCB91BFF568D00B75D4E /* Types.swift */; };
 		4582C10A1BFB4B1D00B60066 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4582C1091BFB4B1D00B60066 /* KeychainSwiftDistrib.swift */; };
 		4582C10C1BFB578D00B60066 /* TotalBolts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4582C10B1BFB578D00B60066 /* TotalBolts.swift */; };
 		4582C10E1BFB654B00B60066 /* Buy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4582C10D1BFB654B00B60066 /* Buy.swift */; };
@@ -53,10 +55,12 @@
 		4502EE001BF4ABFC00ECBAAB /* blt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4502EE031BF4ABFC00ECBAAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4502EE131BF4ABFC00ECBAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4507AD8A1BFF849D005EB464 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		4507AD8C1BFFC720005EB464 /* ProductsType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsType.swift; sourceTree = "<group>"; };
+		4507AD8E1C00D067005EB464 /* ElementStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementStatus.swift; sourceTree = "<group>"; };
 		4547BCB31BFDBB6700B75D4E /* ChooseBuy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuy.swift; sourceTree = "<group>"; };
 		4547BCB51BFDF29000B75D4E /* IconsBolt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconsBolt.swift; sourceTree = "<group>"; };
 		4547BCB71BFF418D00B75D4E /* IconsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconsWindow.swift; sourceTree = "<group>"; };
-		4547BCB91BFF568D00B75D4E /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		4582C1091BFB4B1D00B60066 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
 		4582C10B1BFB578D00B60066 /* TotalBolts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalBolts.swift; sourceTree = "<group>"; };
 		4582C10D1BFB654B00B60066 /* Buy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buy.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				458B2E191BF5DD66009DCC61 /* Background.swift */,
 				45F8BC251BF8B28F005D17DF /* Hud.swift */,
 				4582C10B1BFB578D00B60066 /* TotalBolts.swift */,
+				4507AD8A1BFF849D005EB464 /* Icon.swift */,
 			);
 			name = Objects;
 			path = blt/Objects;
@@ -232,7 +237,8 @@
 				458B2E1D1BF5F6D7009DCC61 /* PlayerTypes.swift */,
 				4547BCB51BFDF29000B75D4E /* IconsBolt.swift */,
 				4547BCB71BFF418D00B75D4E /* IconsWindow.swift */,
-				4547BCB91BFF568D00B75D4E /* Types.swift */,
+				4507AD8C1BFFC720005EB464 /* ProductsType.swift */,
+				4507AD8E1C00D067005EB464 /* ElementStatus.swift */,
 			);
 			name = State;
 			path = blt/State;
@@ -325,7 +331,6 @@
 				4582C10E1BFB654B00B60066 /* Buy.swift in Sources */,
 				458B2E101BF4ED48009DCC61 /* States.swift in Sources */,
 				45F8BC241BF8AC04005D17DF /* SinglePauseMenu.swift in Sources */,
-				4547BCBA1BFF568D00B75D4E /* Types.swift in Sources */,
 				458B2DFC1BF4D723009DCC61 /* Player.swift in Sources */,
 				458B2DFE1BF4DA0E009DCC61 /* About.swift in Sources */,
 				45F8BC261BF8B28F005D17DF /* Hud.swift in Sources */,
@@ -336,10 +341,12 @@
 				458B2DE71BF4D3BE009DCC61 /* EasyGameCenter.swift in Sources */,
 				4547BCB41BFDBB6700B75D4E /* ChooseBuy.swift in Sources */,
 				4582C10A1BFB4B1D00B60066 /* KeychainSwiftDistrib.swift in Sources */,
+				4507AD8B1BFF849D005EB464 /* Icon.swift in Sources */,
 				4582C10C1BFB578D00B60066 /* TotalBolts.swift in Sources */,
 				458B2DE81BF4D3BE009DCC61 /* Packet.swift in Sources */,
 				458B2E181BF5D9D1009DCC61 /* BoltTypes.swift in Sources */,
 				458B2E021BF4DABE009DCC61 /* Bolt.swift in Sources */,
+				4507AD8F1C00D067005EB464 /* ElementStatus.swift in Sources */,
 				458B2E001BF4DAB1009DCC61 /* Vent.swift in Sources */,
 				458B2DF61BF4D554009DCC61 /* Singleplay.swift in Sources */,
 				4547BCB61BFDF29000B75D4E /* IconsBolt.swift in Sources */,
@@ -350,6 +357,7 @@
 				458B2E1C1BF5DF22009DCC61 /* BgTypes.swift in Sources */,
 				458B2DF81BF4D55E009DCC61 /* Multiplay.swift in Sources */,
 				458B2DF21BF4D539009DCC61 /* Start.swift in Sources */,
+				4507AD8D1BFFC720005EB464 /* ProductsType.swift in Sources */,
 				4582C1101BFB694C00B60066 /* Settings.swift in Sources */,
 				458B2E161BF5D9B0009DCC61 /* OfficeType.swift in Sources */,
 				458B2DDE1BF4D2BD009DCC61 /* Controller.swift in Sources */,

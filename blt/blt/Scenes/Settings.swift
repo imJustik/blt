@@ -7,7 +7,7 @@ class Settings: SKScene {
     private var adsOff = SKSpriteNode(imageNamed:"Button Add off")
     private let life = SKSpriteNode(imageNamed:"Button Life")
     private let office = SKSpriteNode(imageNamed:"Button Location")
-    private let total = TotalBolts()
+    
     override func didMoveToView(view: SKView) {
         self.scaleMode = .AspectFill
         self.size = view.bounds.size
@@ -71,17 +71,28 @@ class Settings: SKScene {
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        var type = ProductsType.Bolt
         let touch = touches.first!
         let touchLocation = touch.locationInNode(self)
         switch nodeAtPoint(touchLocation).name{
         case "BackFromSettings"?:
             let scene = Start(size:size)
             self.view?.presentScene(scene)
+        case "bolt"?:
+            let scene = ChooseBuy(type: ProductsType.Bolt, count: 12, size: size)
+            view?.presentScene(scene)
+
+        case "window"?:
+            let scene = ChooseBuy(type: ProductsType.Window, count: 12, size: size)
+            view?.presentScene(scene)
+
+            
+        case "person"?:
+            let scene = ChooseBuy(type: ProductsType.Person, count: 6, size: size)
+            view?.presentScene(scene)
+
         default:
-            if nodeAtPoint(touchLocation).name != nil  {
-                let scene = ChooseBuy(title: nodeAtPoint(touchLocation).name!, count: 12, size: size)
-                view?.presentScene(scene)
-            }
+            print("miss")
         }
         
     }
