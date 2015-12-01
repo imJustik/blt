@@ -1,4 +1,5 @@
 import SpriteKit
+import StoreKit
 
 class Buy: SKScene {
     private let background = Background()
@@ -9,6 +10,7 @@ class Buy: SKScene {
     private var boltCost = 999
     private var moneyCost = 999
     private var productId = String()
+    private var elem: Icon? = nil
     
     private var fogging = SKSpriteNode()
     
@@ -21,18 +23,22 @@ class Buy: SKScene {
     
     private var flag :Bool? = nil //false - болты true - деньги
     
+    var transactionInProgress = false
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
-    init(title: String, texture: SKTexture, boltCost: Int, moneyCost: Int, productId:String, size: CGSize){
+    init(element:Icon, size:CGSize){
         super.init(size: size)
-        self.title = title
-        self.texture = texture
-        self.boltCost = boltCost
-        self.moneyCost = moneyCost
-        self.productId = productId
+        self.title = element.nameProduct
+        self.texture = element.texture!
+        self.boltCost = element.priceBolt
+        self.moneyCost = element.priceMoney
+        self.productId = element.productId
+        self.elem = element
+        Controller.elem = element
     }
 
    
@@ -41,7 +47,7 @@ class Buy: SKScene {
         self.scaleMode = .AspectFill
         self.size = view.bounds.size
         
-        fogging = SKSpriteNode(color: SKColor(red: 0.553, green: 0.2553, blue: 0.1702, alpha: 0.4),size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height))
+        fogging = SKSpriteNode(color: SKColor(red: 82/255, green: 51/255, blue: 41/255, alpha: 0.6),size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height))
         fogging.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds), y: CGRectGetMidY(UIScreen.mainScreen().bounds))
         fogging.zPosition = 7
         addChild(fogging)
@@ -98,7 +104,6 @@ class Buy: SKScene {
         textCostBolt.text = String(boltCost)
         empyButton.addChild(textCostBolt)
         fogging.addChild(empyButton)
-        
     }
     
     private func createMoneyButton(flag: Bool){
@@ -153,10 +158,46 @@ class Buy: SKScene {
                 if let fl = flag {
                     if fl == false {
                         //покупка за болты
-                        print("купили за болты")
+                        if States.sharedInstance.totalBolts >= elem?.priceBolt {
+                            States.sharedInstance.totalBolts -= (elem?.priceBolt)!
+                            switch elem?.nameProduct{
+                                case "Bolt pink"?:
+                                    States.sharedInstance.dict["Pink"] = 2
+                                    ElementStatus.Psevdo = 2
+                                    States.sharedInstance.saveState()
+                                case "Bolt dick"?:
+                                    States.sharedInstance.dict["Dick"] = 2
+                                    ElementStatus.Dick = 2
+                                    States.sharedInstance.saveState()
+                                case "Moning"?:
+                                    States.sharedInstance.dict["Moning"] = 2
+                                    ElementStatus.Moning = 2
+                                    States.sharedInstance.saveState()
+                                case "Night"?:
+                                    States.sharedInstance.dict["Night"] = 2
+                                    ElementStatus.Night = 2
+                                    States.sharedInstance.saveState()
+                                default : print("takie dela")
+                            }
+                            elem!.status = 2
+                            let scene = Settings(size:size)
+                            self.view?.presentScene(scene)
+                        }
                     } else {
                         //покупка за деньги
-                        print("купили за деньги")
+                        switch elem?.nameProduct{
+                        case "Bolt pink"?:
+                          Controller.buyProduct(Controller.productArray[6])
+                        case "Bolt dick"?:
+                           Controller.buyProduct(Controller.productArray[0])
+                        case "Moning"?:
+                            Controller.buyProduct(Controller.productArray[3])
+                        case "Night"?:
+                            Controller.buyProduct(Controller.productArray[4])
+                        default : print("takie dela")
+                            
+                        }
+                        
                     }
                 }
             default: print("def")

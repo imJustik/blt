@@ -5,30 +5,30 @@
 */
 
 class IconsBolt {
-    static var Bolt : [String:Any] = ["name":"Bolt metal","image":"Bolt metal","status":ElementStatus.Bolt,"productId":"11test","costBolt":100, "costMoney": 5]
-    static var Pink : [String:Any] = ["name":"Bolt metal","image":"Bolt pink","status":ElementStatus.Psevdo,"productId":"22test","costBolt":200, "costMoney": 5]
-    static var Dick : [String:Any] = ["name":"Bolt metal","image":"Bolt dick","status":ElementStatus.Dick,"productId":"33test","costBolt":300, "costMoney": 5]
+    static var Bolt : [String:AnyObject] = ["name":"Bolt metal","image":"Bolt metal","status":(States.sharedInstance.dict["Bolt"]) as! Int,"productId":"11test","costBolt":0, "costMoney": 1]
+    static var Pink : [String:AnyObject] = ["name":"Bolt pink","image":"Bolt pink","status":(States.sharedInstance.dict["Pink"]) as! Int,"productId":"22test","costBolt":200, "costMoney": 1]
+    static var Dick : [String:AnyObject] = ["name":"Bolt dick","image":"Bolt dick","status":(States.sharedInstance.dict["Dick"]) as! Int,"productId":"33test","costBolt":200, "costMoney": 1]
 
     
 //true - элемент разблокирован
 //false - элемент заблокирован
 
-    static func returnBolts() -> [[String:Any]] {
-        let mass : [[String:Any]] = [IconsBolt.Bolt,IconsBolt.Pink,IconsBolt.Dick]
+    static func returnBolts() -> [[String:AnyObject]] {
+        let mass : [[String:AnyObject]] = [IconsBolt.Bolt,IconsBolt.Pink,IconsBolt.Dick]
     return mass
     }
     
     static func setSelect() {
-         IconsBolt.Bolt["status"] = Status.open
-         IconsBolt.Pink["status"] = Status.open
-         IconsBolt.Dick["status"] = Status.locked
+         IconsBolt.Bolt["status"] = ElementStatus.Bolt
+         IconsBolt.Pink["status"] = ElementStatus.Psevdo
+         IconsBolt.Dick["status"] = ElementStatus.Dick
         switch States.sharedInstance.boltType {
         case BoltTypes.Bolt:
-            IconsBolt.Bolt["status"] = Status.select
+            IconsBolt.Bolt["status"] = 0
         case BoltTypes.Psevdo:
-            IconsBolt.Pink["status"] = Status.select
+            IconsBolt.Pink["status"] = 0
         case BoltTypes.Dick:
-           IconsBolt.Dick["status"] = Status.select
+           IconsBolt.Dick["status"] = 0
         default: break
         }
 

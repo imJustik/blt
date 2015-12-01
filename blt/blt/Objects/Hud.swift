@@ -11,8 +11,9 @@ class Hud: SKNode {
     }
     private func addPauseButton(){ //кнопка паузы
         let pauseButton = SKSpriteNode(imageNamed: "Pause black") //кнопка паузы
+        Controller.changeSize(pauseButton)
         pauseButton.removeFromParent()
-        pauseButton.position = CGPoint(x: CGRectGetMaxX(UIScreen.mainScreen().bounds) - 54, y: CGRectGetMinY(UIScreen.mainScreen().bounds) + 24)
+        pauseButton.position = CGPoint(x: CGRectGetMaxX(UIScreen.mainScreen().bounds) - 54 * Controller.xScale, y: CGRectGetMinY(UIScreen.mainScreen().bounds) + 24 * Controller.yScale)
         pauseButton.zPosition = 4
         pauseButton.name = "pauseButton"
         addChild(pauseButton)
@@ -22,7 +23,7 @@ class Hud: SKNode {
         lblScore = SKLabelNode(fontNamed: "Futura Md BT Bold") //счет
         lblScore.fontSize = 40
         lblScore.fontColor = SKColor.whiteColor()
-        lblScore.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds), y: CGRectGetMidY(UIScreen.mainScreen().bounds)+180)
+        lblScore.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds), y: CGRectGetMidY(UIScreen.mainScreen().bounds)+180*Controller.yScale)
         lblScore.text = String(States.sharedInstance.score)
         addChild(lblScore)
     }
@@ -50,6 +51,7 @@ class Hud: SKNode {
         
         for var i = 0; i<cnt; i++ {
             health.append(SKSpriteNode(imageNamed: "health"))
+            Controller.changeSize(health[i])
             health[i].position = CGPoint(x: lblScore.position.x - CGFloat(firstXPosition) , y: lblScore.position.y - 10)
             health[i].zPosition = 10
             addChild(health[i])

@@ -6,7 +6,7 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
     private var timerCreateBolt: NSTimer? = nil
     private var gameOver: SingleGameOver? = nil
     private var bolt: Bolt? = nil
-    private var maxHealth = 1
+    private var maxHealth = States.sharedInstance.livesCount
     private var currentHealth = 0
     private let hud = Hud()
     private let pauseMenu = SinglePauseMenu()
@@ -37,7 +37,7 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
     
     func createBolt()
     {
-        bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - 100), impulse: CGVector(dx: 115, dy: 0))
+        bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - 100 * Controller.yScale), impulse: CGVector(dx: 115 * Controller.xScale, dy: 0))
         if States.sharedInstance.boltType == BoltTypes.Dick{
         bolt!.sprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(States.sharedInstance.dickFrames, timePerFrame: 0.075, resize: false, restore: false)), withKey: "dick")
             

@@ -16,6 +16,7 @@ class Background: SKNode {
     }
     private func addOffice(){
         let bg = SKSpriteNode(imageNamed: States.sharedInstance.officeType)
+        Controller.changeSize(bg)
         bg.position = CGPoint(x: CGRectGetMidX(bounds), y: CGRectGetMidY(bounds))
         bg.size = bounds.size
         bg.zPosition = 0
@@ -24,17 +25,20 @@ class Background: SKNode {
     
     private func addWindow(){
         let window = SKSpriteNode(imageNamed: States.sharedInstance.bgType)
-        window.position = CGPoint(x: CGRectGetMidX(bounds) - 50, y: CGRectGetMidY(bounds) + 75)
+        Controller.changeSize(window)
+        window.position = CGPoint(x: CGRectGetMidX(bounds) - 50 * Controller.xScale, y: CGRectGetMidY(bounds) + 75 * Controller.yScale)
         window.setScale(0.9)
         window.zPosition = -5
         addChild(window)
     }
     
     private func addCulerAndPrinter(){
-        culer.position = CGPoint (x: CGRectGetMidX(bounds) + 74
-            , y: CGRectGetMidY(bounds) - 35)
-        printer.position = CGPoint(x: CGRectGetMidX(bounds) - 105
-            , y: CGRectGetMidY(bounds)-55)
+        culer.position = CGPoint (x: CGRectGetMidX(bounds) + 74 * Controller.xScale
+            , y: CGRectGetMidY(bounds) - 35 * Controller.yScale)
+        printer.position = CGPoint(x: CGRectGetMidX(bounds) - 105 * Controller.xScale
+            , y: CGRectGetMidY(bounds)-55 * Controller.yScale)
+        Controller.changeSize(culer)
+        Controller.changeSize(printer)
         addChild(culer)
         addChild(printer)
     }
@@ -49,7 +53,7 @@ class Background: SKNode {
     
     private func addWalls(){
         //MARK: левая стена низ
-        let lWall = SKShapeNode(rect: CGRectMake(1, UIScreen.mainScreen().bounds.height/2.845, 1, UIScreen.mainScreen().bounds.height/2.845))
+        let lWall = SKShapeNode(rect: CGRectMake(1, UIScreen.mainScreen().bounds.height/2.9, 1, UIScreen.mainScreen().bounds.height/2.9))
         lWall.position = CGPoint(x: CGRectGetMaxX(UIScreen.mainScreen().bounds), y: CGRectGetMinY(UIScreen.mainScreen().bounds) + lWall.frame.size.height/2)
         lWall.physicsBody = SKPhysicsBody(rectangleOfSize: lWall.frame.size)
         lWall.physicsBody?.categoryBitMask = BitMask.downWall

@@ -1,4 +1,10 @@
 import SpriteKit
+/* 
+select = 0
+locked = 1
+open = 2
+question = 3
+*/
 
 class States {
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -12,10 +18,14 @@ class States {
     var firstStart = false
     var countLoose = 0
     var totalBolts = 0
+    var structura = ElementStatus.self
     let keychain = KeychainSwift()
+    var dict: [String : AnyObject]  = ["Bolt" : 2 , "Pink":1 , "Dick" : 1, "Moning":1, "Day": 2, "Night":1, "Snow":1, "Rain":1]
+    var livesCount = 3
+    var buyAds = false
     
-    // Types 
-    var boltType: String = BoltTypes.Psevdo
+    // Types
+    var boltType: String = BoltTypes.Bolt
     var bgType: String = BgTypes.Day
     var officeType: String = OfficeTypes.Office
     var playerType: String = PlayerTypes.Men
@@ -27,6 +37,7 @@ class States {
     var printerFrames: [SKTexture] = []
     var dickFrames:[SKTexture] = []
     var gridFrames:[SKTexture] = []
+    var gridOpenFrames:[SKTexture] = []
 
     class var sharedInstance: States {
         struct Singleton {
@@ -40,10 +51,10 @@ class States {
         score = 0
         highScore = 0
         addAnimation()
-        
+        cleanStatus() //Расскоментируй это, что бы сбрасывать покупки перед запуском
         // Load game state
         if defaults.valueForKey("boltType") != nil {
-           //boltType = defaults.valueForKey("boltType") as! String
+           boltType = defaults.valueForKey("boltType") as! String
         }
         if defaults.valueForKey("bgType") != nil {
            bgType = defaults.valueForKey("bgType") as! String
@@ -52,6 +63,14 @@ class States {
         firstStart = defaults.boolForKey("firstFlag")
         if keychain.get("totalBolts") != nil {
             totalBolts = Int(keychain.get("totalBolts")!)!
+        }
+        if defaults.dictionaryForKey("EStatus") != nil {
+            dict = defaults.dictionaryForKey("EStatus")!
+            print(dict["Bolt"] as! Int)
+        }
+        buyAds = defaults.boolForKey("removeAds")
+        if defaults.integerForKey("livesCount") != 0 {
+        livesCount = defaults.integerForKey("livesCount")
         }
     }
     func saveState() {
@@ -64,6 +83,9 @@ class States {
         defaults.setValue(bgType, forKey:"bgType")
         defaults.setBool(firstStart, forKey: "firstFlag")
         NSUserDefaults.standardUserDefaults().synchronize()
+        defaults.setObject(dict, forKey: "EStatus")
+        defaults.setBool(buyAds, forKey: "removeAds")
+        defaults.setInteger(livesCount, forKey: "livesCount")
     }
     func saveTotalBolts(){
         keychain.delete("totalBolts")
@@ -116,7 +138,17 @@ class States {
             let gridTextureName = "Grid_\(i).png"
             gridFrames.append(gridAtlas.textureNamed(gridTextureName))
         }
+        gridOpenFrames = gridFrames.reverse()
     }
-    
+        func cleanStatus(){
+        defaults.removeObjectForKey("EStatus")
+        defaults.removeObjectForKey("removeAds")
+        boltType = BoltTypes.Bolt
+        bgType = BgTypes.Day
+        
+        //IconsBolt.setSelect()
+        //IconsBolt.setSelect()
+        
+    }
 
 }

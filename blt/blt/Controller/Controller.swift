@@ -4,22 +4,33 @@ import SpriteKit
 import GameKit
 import StoreKit
 
-class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDelegate
+class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver
     {
+    static var p = SKProduct()
     var skView: SKView? = nil
+    static var elem: Icon? = nil
     var window: UIWindow?
-    let productIdentifiers = Set(["com.treedeo.remove"])
+    let productIdentifiers = Set(["com.treedeo.remove","com.treedeo.pink","com.treedeo.dick","com.treedeo.night","com.treedeo.moning","com.treedeo.fivebolt","com.treedeo.god","com.treedeo.onebolt","com.treedeo.tenbolts"])
     var product: SKProduct?
-    var productArray = Array<SKProduct>()
     
+    
+    static var productArray = Array<SKProduct>()
+    static var xScale:CGFloat = 0
+    static var yScale:CGFloat = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         EasyGameCenter.sharedInstance(self)
-        EasyGameCenter.debugMode = true
+        EasyGameCenter.debugMode = false
         requestProductData()
+        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        Controller.xScale = UIScreen.mainScreen().bounds.width / CGFloat(320.0)
+        Controller.yScale = UIScreen.mainScreen().bounds.height / CGFloat(568.0)
     }
-    
+    class func changeSize(node:SKSpriteNode){
+        node.size.height *= yScale
+        node.size.width *= xScale
+    }
     override func viewDidAppear(animated: Bool) {
         EasyGameCenter.delegate = self
     }
@@ -80,7 +91,6 @@ class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDel
             States.sharedInstance.fragReady = true
         default: print("Oops")
         }
-        
    }
     /**
      Match End / Error (No NetWork example), Delegate Func of Easy Game Center
@@ -104,6 +114,7 @@ class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDel
     func EGCMatchCancel() {
         print("Match Cancel")
     }
+
     func requestProductData(){
         if SKPaymentQueue.canMakePayments() {
             let request = SKProductsRequest(productIdentifiers: self.productIdentifiers)
@@ -127,14 +138,81 @@ class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDel
         var products = response.products
         if products.count != 0 {
             for var i = 0; i < products.count; i++ {
-                self.product = products[i]
-                self.productArray.append(product!)
+                product = products[i]
+                Controller.productArray.append(product!)
             }
         } else {
             print("No products found")
         }
     }
     
+    // **********BUY PRODUCT************
+    class func buyProduct(product: SKProduct){
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.defaultQueue().addPayment(payment);
+        Controller.p = product
+    }
+    
+    
+     func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        print("Received Payment Transaction Response from Apple");
+        
+        for transaction:AnyObject in transactions {
+            let prodId = Controller.p.productIdentifier 
+            if let trans:SKPaymentTransaction = transaction as? SKPaymentTransaction{
+                switch trans.transactionState {
+                case .Purchased:
+                    print("Product Purchased");
+                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
+                     (self.view as! SKView).presentScene(Settings())
+                    switch prodId{
+                    case "com.treedeo.remove":
+                        States.sharedInstance.buyAds = true
+                        States.sharedInstance.saveState()
+                        (self.view as! SKView).presentScene(Settings())
+                    case "com.treedeo.pink":
+                        States.sharedInstance.dict["Pink"] = 2
+                        ElementStatus.Psevdo = 2
+                        States.sharedInstance.saveState()
+                    case "com.treedeo.dick":
+                        States.sharedInstance.dict["Dick"] = 2
+                        ElementStatus.Dick = 2
+                    case "com.treedeo.moning":
+                        States.sharedInstance.dict["Moning"] = 2
+                        ElementStatus.Moning = 2
+                        States.sharedInstance.saveState()
+                    case "com.treedeo.night":
+                        States.sharedInstance.dict["Night"] = 2
+                        ElementStatus.Night = 2
+                        States.sharedInstance.saveState()
+                    case "com.treedeo.onebolt":
+                        States.sharedInstance.livesCount++
+                        States.sharedInstance.saveState()
+                    case "com.treedeo.fivebolt":
+                        States.sharedInstance.livesCount+=5
+                        States.sharedInstance.saveState()
+                    case "com.treedeo.tenbolts":
+                        States.sharedInstance.livesCount+=10
+                        States.sharedInstance.saveState()
+                    case "com.treedeo.god": print("YOU ARE GOD")
+                    default : print("не то купили")
+                    }
+                    Controller.elem?.status = 2
+                    break;
+                case .Failed:
+                    let alert = UIAlertController(title: "Purchased Failed", message: "Transaction is canceled", preferredStyle: UIAlertControllerStyle.Alert)
+                                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {aletAction in alert.dismissViewControllerAnimated(true, completion: nil)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    (self.view as! SKView).presentScene(Settings())
+                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
+                    break;
+                    // case .Restored:
+                    //[self restoreTransaction:transaction];
+                default:
+                    break;
+                }
+            }
+        }
+    }
 }
-
-

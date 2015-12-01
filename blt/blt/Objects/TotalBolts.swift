@@ -12,7 +12,7 @@ class TotalBolts: SKNode {
         
         let countTotal = SKLabelNode(fontNamed: "Futura Md BT Bold")
         countTotal.text = String(States.sharedInstance.totalBolts)
-        countTotal.position = CGPoint(x: totalBolts.position.x, y: totalBolts.position.y - 25)
+        countTotal.position = CGPoint(x: totalBolts.position.x, y: totalBolts.position.y - 25*Controller.yScale)
         countTotal.fontSize = 23
         addChild(countTotal)
         

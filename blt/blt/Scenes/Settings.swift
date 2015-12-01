@@ -1,4 +1,5 @@
 import SpriteKit
+import StoreKit
 
 class Settings: SKScene {
     private let window = SKSpriteNode(imageNamed: "Button Windows")
@@ -7,6 +8,8 @@ class Settings: SKScene {
     private var adsOff = SKSpriteNode(imageNamed:"Button Add off")
     private let life = SKSpriteNode(imageNamed:"Button Life")
     private let office = SKSpriteNode(imageNamed:"Button Location")
+    private let fogging = SKSpriteNode(color: SKColor(red: 82/255, green: 51/255, blue: 41/255, alpha: 0.6),size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height))
+    
     
     override func didMoveToView(view: SKView) {
         self.scaleMode = .AspectFill
@@ -17,7 +20,7 @@ class Settings: SKScene {
         addChild(player)
         player.typeAnimation()
         
-        let fogging = SKSpriteNode(color: SKColor(red: 0.553, green: 0.2553, blue: 0.1702, alpha: 0.4),size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height))
+        
         fogging.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds), y: CGRectGetMidY(UIScreen.mainScreen().bounds))
         fogging.zPosition = 7
        addChild(fogging)
@@ -59,6 +62,9 @@ class Settings: SKScene {
         life.name = "life"
         fogging.addChild(life)
  //выключение рекламы
+        if States.sharedInstance.buyAds == true {
+            adsOff = SKSpriteNode(imageNamed: "Button Add off black")
+        }
         adsOff.position = CGPoint(x: life.position.x - 70, y: life.position.y)
         adsOff.name = "adsOff"
         fogging.addChild(adsOff)
@@ -78,6 +84,7 @@ class Settings: SKScene {
         case "BackFromSettings"?:
             let scene = Start(size:size)
             self.view?.presentScene(scene)
+            
         case "bolt"?:
             let scene = ChooseBuy(type: ProductsType.Bolt, count: 12, size: size)
             view?.presentScene(scene)
@@ -86,14 +93,54 @@ class Settings: SKScene {
             let scene = ChooseBuy(type: ProductsType.Window, count: 12, size: size)
             view?.presentScene(scene)
 
-            
         case "person"?:
-            let scene = ChooseBuy(type: ProductsType.Person, count: 6, size: size)
+            //let scene = ChooseBuy(type: ProductsType.Person, count: 6, size: size)
+            view?.presentScene(ComingSoon())
+            
+        case "adsOff"?:
+            guard Controller.productArray.count>0 else{
+                showAllertWithTitle("Error with get products", message:"Check your internet connection")
+                return
+            }
+            if States.sharedInstance.buyAds == false {
+                adsOff.removeFromParent()
+                adsOff = SKSpriteNode(imageNamed:"Button Add off black")
+                adsOff.position = CGPoint(x: life.position.x - 70, y: life.position.y)
+                fogging.addChild(adsOff)
+                Controller.p = Controller.productArray[7]
+                Controller.buyProduct(Controller.productArray[7])
+            }
+            
+        case "life"?:
+            guard Controller.productArray.count>0 else{
+                showAllertWithTitle("Error with get products", message:"Check your internet connection")
+                return
+            }
+            let scene = BuyLifes()
             view?.presentScene(scene)
 
         default:
             print("miss")
         }
-        
+    }
+    
+    func showAllertWithTitle(title:String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default, handler: { alertAction in alert.dismissViewControllerAnimated(true, completion: nil)
+            let url: NSURL? = NSURL(string: UIApplicationOpenSettingsURLString)
+            if url != nil {
+                UIApplication.sharedApplication().openURL(url!)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: {aletAction in alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        self.view?.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
     }
 }
+
+//     func lockAdsButton(){
+//        adsOff.removeFromParent()
+//        adsOff.position = CGPoint(x: life.position.x - 70, y: life.position.y)
+//        adsOff.name = "adsOff"
+//        fogging.addChild(adsOff)
+//    }

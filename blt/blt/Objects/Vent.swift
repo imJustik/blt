@@ -7,6 +7,7 @@ class Vent: GameObjects {
     let top = SKSpriteNode(imageNamed: "top")
     var xScaleFactor = UIScreen.mainScreen().bounds.width / 320.0
     var yScaleFactor = UIScreen.mainScreen().bounds.height / 568.0
+    private var flag = false //состояние решетки
     override init() {
         super.init()
         let offsetX = vent.frame.size.width * vent.anchorPoint.x;
@@ -42,14 +43,23 @@ class Vent: GameObjects {
         vent.addChild(vent1)
         addChild(vent)
         
-        top.position = CGPoint(x: vent.position.x-12, y: vent.position.y+21)
+        top.position = CGPoint(x: vent.position.x-12 * xScaleFactor, y: vent.position.y+21 * yScaleFactor)
+        top.name = "top"
         top.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: top.frame.size.width/10, height: top.frame.size.height), center: CGPoint(x: CGRectGetMidX(top.frame), y: CGRectGetMidY(top.frame)))
         top.physicsBody?.dynamic = false
         top.zPosition = 7
         addChild(top)
     }
     func closeGrid(){
+        if !top.hasActions() {
+        if flag == false {
+        flag = true
         top.runAction(SKAction.repeatAction(SKAction.animateWithTextures(States.sharedInstance.gridFrames, timePerFrame: 0.075, resize: false, restore: false), count: 1))
+        } else {
+            flag = false
+            top.runAction(SKAction.repeatAction(SKAction.animateWithTextures(States.sharedInstance.gridOpenFrames, timePerFrame: 0.075, resize: false, restore: false), count: 1))
+            }
+        }
     }
     private func changeSize(node: SKSpriteNode) { //Функция увеличиват спрайты пропорционально экрану
         node.size.width *= xScaleFactor
