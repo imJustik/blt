@@ -2,19 +2,19 @@ import SpriteKit
 import StoreKit
 
 class Settings: SKScene {
-    private let window = SKSpriteNode(imageNamed: "Button Windows")
+    private let window = SKSpriteNode(imageNamed: "Button windows")
     private let bolt = SKSpriteNode(imageNamed: "Button Bolt")
     private let person = SKSpriteNode(imageNamed: "Button Person")
     private var adsOff = SKSpriteNode(imageNamed:"Button Add off")
     private let life = SKSpriteNode(imageNamed:"Button Life")
     private let office = SKSpriteNode(imageNamed:"Button Location")
     private let fogging = SKSpriteNode(color: SKColor(red: 82/255, green: 51/255, blue: 41/255, alpha: 0.6),size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height))
+    private let background = Background()
     
     
     override func didMoveToView(view: SKView) {
         self.scaleMode = .AspectFill
         self.size = view.bounds.size
-        let background = Background()
         let player = Player()
         addChild(background)
         addChild(player)
@@ -118,7 +118,8 @@ class Settings: SKScene {
             }
             let scene = BuyLifes()
             view?.presentScene(scene)
-
+        case "top"?:
+            background.vent.closeGrid()
         default:
             print("miss")
         }

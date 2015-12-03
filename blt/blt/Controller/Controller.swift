@@ -51,6 +51,7 @@ class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDel
     func easyGameCenterInCache() {
         print("\n[AuthenticationActions] GkAchievement & GKAchievementDescription in cache\n")
     }
+    
     /**
      Match Start, Delegate Func of Easy Game Center
      */
@@ -61,6 +62,7 @@ class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDel
     /**
      Match Recept Data, Delegate Func of Easy Game Center
      */
+    
     func easyGameCenterMatchRecept(match: GKMatch, didReceiveData data: NSData, fromPlayer playerID: String) {
         print("\n[MultiPlayerActions] Recept Data from Match !")
         
@@ -76,16 +78,19 @@ class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDel
         switch autre.index {
         case 0:
             if States.sharedInstance.enemyHealth > 0 {
-                States.sharedInstance.flag = false
+                States.sharedInstance.flag = false //Флаг нужен для того, что бы не отображать сцену победы несколько раз
                 States.sharedInstance.enemyHealth--
+                Multiplay.changeEnemyHealth()
             } else {
-                //конец игры
+               
             }
-        case 1: States.sharedInstance.enemyScore++
+        case 1:
+            States.sharedInstance.enemyScore++
+            Hud.enemyScore.text =  String(States.sharedInstance.enemyScore)
             
         case 2:
-            States.sharedInstance.enemyLoose = true
-            //конец игры
+           States.sharedInstance.enemyHealth = 0
+            States.sharedInstance.flag = false
         case 3:
             print("Start game") // удаляем экран загрузки и начинаем
             States.sharedInstance.fragReady = true

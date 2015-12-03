@@ -8,25 +8,25 @@ class Bolt: GameObjects {
     init(pos: CGPoint, impulse: CGVector){
         super.init()
         changeSize(sprite)
-        var mas: CGFloat = -50
+        var mas: CGFloat = 0
         addChild(sprite)
         position = pos
         zPosition = 3
         zRotation = rand(0, max: 89)
         if States.sharedInstance.boltType != BoltTypes.Dick {
-            physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height/2)}
+            physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height / (2 * Controller.yScale))}
         else {
-            physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height/4)
+            physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height / (4 * Controller.xScale))
             sprite.setScale(0.92)
         }
-        physicsBody?.velocity = impulse
+        self.physicsBody!.velocity = impulse
         //physicsBody?.allowsRotation = false
-        switch States.sharedInstance.boltType {
-        case BoltTypes.Bolt: mas = -50
-        case BoltTypes.Psevdo: mas = -45
-        case BoltTypes.Dick: mas = -49
-        default: mas = -50
-        }
+//        switch States.sharedInstance.boltType {
+//        case BoltTypes.Bolt: mas = -50
+//        case BoltTypes.Psevdo: mas = -45
+//        case BoltTypes.Dick: mas = -49
+//        default: mas = -50
+//        }
         sprite.physicsBody?.mass = mas
         physicsBody!.categoryBitMask = BitMask.Bolt
         physicsBody!.collisionBitMask =  BitMask.Foot | BitMask.downWall
@@ -38,7 +38,7 @@ class Bolt: GameObjects {
     }
     override func collision(obj: SKNode) -> Bool {
         //self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 2.5))
-        self.physicsBody?.applyImpulse(CGVector(dx: 0.5 * Controller.xScale, dy: 1.4 * Controller.yScale ))
+        self.physicsBody?.applyImpulse(CGVector(dx: 0.5 * Controller.xScale, dy: 1.45 * Controller.yScale ))
         //self.physicsBody?.applyImpulse(CGVector(dx: 3.2, dy: 4))
         return true
     }

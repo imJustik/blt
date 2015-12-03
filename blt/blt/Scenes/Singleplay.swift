@@ -16,6 +16,7 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         self.scaleMode = .AspectFill
         self.size = view.bounds.size
+        //self.size = CGSize(width: 320, height: 568)
         States.sharedInstance.score = 0
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)
         addChild(background)
@@ -37,7 +38,7 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
     
     func createBolt()
     {
-        bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - 100 * Controller.yScale), impulse: CGVector(dx: 115 * Controller.xScale, dy: 0))
+        bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - 100 * Controller.yScale), impulse: CGVector(dx: 115*Controller.xScale, dy: 0))
         if States.sharedInstance.boltType == BoltTypes.Dick{
         bolt!.sprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(States.sharedInstance.dickFrames, timePerFrame: 0.075, resize: false, restore: false)), withKey: "dick")
             

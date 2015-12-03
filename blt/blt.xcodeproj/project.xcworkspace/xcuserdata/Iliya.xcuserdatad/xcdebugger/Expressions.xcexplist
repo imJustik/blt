@@ -49,6 +49,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Controller.easyGameCenterMatchRecept(GKMatch, didReceiveData : NSData, fromPlayer : String) -&gt; ():Controller.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "States.sharedInstance.enemyHealth">
+            </PersistentString>
+            <PersistentString
+               value = "autre.index">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Buy.init(title : String, texture : SKTexture, boltCost : Int, moneyCost : Int, size : CGSize) -&gt; Buy:Buy.swift">
          <PersistentStrings>
             <PersistentString
@@ -75,6 +86,14 @@
          <PersistentStrings>
             <PersistentString
                value = "States.sharedInstance.livesCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Background.(addWalls in _CE36B35D1B740BCB427BC0001CA01D3C)() -&gt; ():Background.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIScreen.mainScreen().bounds">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -119,16 +138,25 @@
             <PersistentString
                value = "self.frame.height - 100">
             </PersistentString>
+            <PersistentString
+               value = "bolt!.position">
+            </PersistentString>
+            <PersistentString
+               value = "player.foot.position">
+            </PersistentString>
+            <PersistentString
+               value = "bolt.physicsBody!.velocity">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ChooseBuy.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():ChooseBuy.swift">
          <PersistentStrings>
             <PersistentString
-               value = "&quot;\&quot;&quot; + String(IconsBolt.Bolt[&quot;name&quot;]) + &quot;\&quot;&quot;">
+               value = "IconsBolt.Dick[&quot;name&quot;]">
             </PersistentString>
             <PersistentString
-               value = "IconsBolt.Dick[&quot;name&quot;]">
+               value = "&quot;\&quot;&quot; + String(IconsBolt.Bolt[&quot;name&quot;]) + &quot;\&quot;&quot;">
             </PersistentString>
             <PersistentString
                value = "nodeAtPoint(touchLocation).name">
@@ -190,6 +218,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Singleplay.(repeatGame in _AE2BF829B8C1A12C287EC699B3E404B5)() -&gt; ():Singleplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIScreen.mainScreen().bounds.height">
+            </PersistentString>
+            <PersistentString
+               value = "player.position">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.yScale">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.xScale">
+            </PersistentString>
+            <PersistentString
+               value = "UIScreen.mainScreen().bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ElementStatus.Dick.unsafeMutableAddressor:ElementStatus.swift">
          <PersistentStrings>
             <PersistentString
@@ -201,7 +249,7 @@
          contextName = "Controller.viewDidLoad() -&gt; ():Controller.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.height">
+               value = "UIScreen.mainScreen().bounds.width">
             </PersistentString>
             <PersistentString
                value = "Controller.yScale">
@@ -210,7 +258,7 @@
                value = "Controller.xScale">
             </PersistentString>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.width">
+               value = "UIScreen.mainScreen().bounds.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -4,6 +4,8 @@ import SpriteKit
 class Hud: SKNode {
     private var lblScore = SKLabelNode()
     private var health = [SKSpriteNode]()
+    private var enemyHealth = [SKSpriteNode]() //для multiplay
+    static var enemyScore = SKLabelNode(fontNamed: "Futura Md BT Bold")
     override init(){
       super.init()
       addPauseButton()
@@ -26,6 +28,26 @@ class Hud: SKNode {
         lblScore.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds), y: CGRectGetMidY(UIScreen.mainScreen().bounds)+180*Controller.yScale)
         lblScore.text = String(States.sharedInstance.score)
         addChild(lblScore)
+    }
+    
+    func addScoreForMultiplay(){
+        lblScore.removeFromParent()
+        
+        lblScore = SKLabelNode(fontNamed: "Futura Md BT Bold") //счет
+        lblScore.fontSize = 40
+        lblScore.fontColor = SKColor.whiteColor()
+        lblScore.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds) - 50 * Controller.xScale, y: CGRectGetMidY(UIScreen.mainScreen().bounds)+180*Controller.yScale)
+        lblScore.text = String(States.sharedInstance.score)
+        addChild(lblScore)
+
+        Hud.enemyScore = SKLabelNode(fontNamed: "Futura Md BT Bold")
+        Hud.enemyScore.fontSize = 40
+        Hud.enemyScore.fontColor = SKColor.whiteColor()
+        Hud.enemyScore.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds) + 50 * Controller.xScale, y: CGRectGetMidY(UIScreen.mainScreen().bounds)+180*Controller.yScale)
+        Hud.enemyScore.text = String(States.sharedInstance.enemyScore)
+        addChild(Hud.enemyScore)
+        
+        
     }
      func updateScore(){
         lblScore.text = String(States.sharedInstance.score)
@@ -58,6 +80,38 @@ class Hud: SKNode {
             firstXPosition -= indent
         }
 
+    }
+    
+    func removeEnemyHealth(){
+        if enemyHealth.count != 0 {
+            for hl in enemyHealth {
+                hl.removeFromParent()
+            }
+        }
+    }
+    
+    func addHealthForMultiplay(cnt: Int){ //добавляет жизни врага в мультлее
+        var firstXPosition: Int = 0
+        let indent = 10
+        
+        if cnt % 2 == 0 {  //Посчитаем смещение отноcительно Счета.
+            firstXPosition = cnt / 2 * 10 - 5
+        }
+        else {
+            firstXPosition = cnt / 2 * 10
+        }
+        
+        removeEnemyHealth()
+        enemyHealth = [SKSpriteNode]()
+        
+        for var i = 0; i<cnt; i++ {
+            enemyHealth.append(SKSpriteNode(imageNamed: "health"))
+            Controller.changeSize(enemyHealth[i])
+            enemyHealth[i].position = CGPoint(x:  Hud.enemyScore.position.x - CGFloat(firstXPosition) , y:  Hud.enemyScore.position.y - 10)
+            enemyHealth[i].zPosition = 10
+            addChild(enemyHealth[i])
+            firstXPosition -= indent
+        }
     }
    
     

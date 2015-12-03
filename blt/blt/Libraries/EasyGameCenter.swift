@@ -1156,7 +1156,7 @@ class EasyGameCenter: NSObject, GKGameCenterControllerDelegate, GKMatchmakerView
                 } else {
                     EasyGameCenter.completionCachingAchievements(achievementsDescription)
                 }
-                print("Privet")
+               
             })
         }
     }

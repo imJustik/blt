@@ -52,9 +52,10 @@ class Background: SKNode {
     }
     
     private func addWalls(){
-        //MARK: левая стена низ
-        let lWall = SKShapeNode(rect: CGRectMake(1, UIScreen.mainScreen().bounds.height/2.9, 1, UIScreen.mainScreen().bounds.height/2.9))
-        lWall.position = CGPoint(x: CGRectGetMaxX(UIScreen.mainScreen().bounds), y: CGRectGetMinY(UIScreen.mainScreen().bounds) + lWall.frame.size.height/2)
+        //MARK: правая стена низ
+        let lWall = SKShapeNode(rect: CGRectMake(1, 1, 1,UIScreen.mainScreen().bounds.height/2.85 * 2))
+        //lWall.position = CGPoint(x: 300, y: 300)
+        lWall.position = CGPoint(x: CGRectGetMaxX(UIScreen.mainScreen().bounds) , y: CGRectGetMinY(UIScreen.mainScreen().bounds) + lWall.frame.size.height/2)
         lWall.physicsBody = SKPhysicsBody(rectangleOfSize: lWall.frame.size)
         lWall.physicsBody?.categoryBitMask = BitMask.downWall
         lWall.physicsBody?.collisionBitMask = 0
@@ -62,8 +63,8 @@ class Background: SKNode {
         lWall.physicsBody!.dynamic = false
         self.addChild(lWall)
         
-        //MARK: левая стена верх
-        let lWallUp = SKShapeNode(rect: CGRectMake(1, UIScreen.mainScreen().bounds.height/10, 1, UIScreen.mainScreen().bounds.height/10))
+        //MARK: правая стена верх
+        let lWallUp = SKShapeNode(rect: CGRectMake(1,1,1, UIScreen.mainScreen().bounds.height/10 * 2))
         lWallUp.position = CGPoint(x: CGRectGetMaxX(UIScreen.mainScreen().bounds), y: CGRectGetMaxY(UIScreen.mainScreen().bounds) - 20)
         lWallUp.physicsBody = SKPhysicsBody(rectangleOfSize: lWallUp.frame.size)
         lWallUp.physicsBody?.categoryBitMask = BitMask.upWall

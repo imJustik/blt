@@ -11,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>The Bolt</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -33,11 +33,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-    <key>UIAppFonts</key>
-    <array>
-        <string>Futura Md BT Bold.ttf</string>
-        <string>Futura Md BT Medium.ttf</string>
-    </array>
-
+	<key>UIAppFonts</key>
+	<array>
+		<string>Futura Md BT Bold.ttf</string>
+		<string>Futura Md BT Medium.ttf</string>
+	</array>
 </dict>
 </plist>

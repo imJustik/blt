@@ -1,5 +1,7 @@
 import SpriteKit
-
+/* to do:
+добавить проверку на полечуные продукты при покупуке болтов или фонов
+разобраться с версткой */
 
 class Start: SKScene {
     private var singlePlayButton = SKSpriteNode(imageNamed: "Singleplay white")
