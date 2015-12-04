@@ -52,10 +52,10 @@
          contextName = "Controller.easyGameCenterMatchRecept(GKMatch, didReceiveData : NSData, fromPlayer : String) -&gt; ():Controller.swift">
          <PersistentStrings>
             <PersistentString
-               value = "States.sharedInstance.enemyHealth">
+               value = "autre.index">
             </PersistentString>
             <PersistentString
-               value = "autre.index">
+               value = "States.sharedInstance.enemyHealth">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -142,6 +142,9 @@
                value = "bolt!.position">
             </PersistentString>
             <PersistentString
+               value = "115*(self.frame.height - (100*Controller.xScale)))/468">
+            </PersistentString>
+            <PersistentString
                value = "player.foot.position">
             </PersistentString>
             <PersistentString
@@ -153,10 +156,10 @@
          contextName = "ChooseBuy.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():ChooseBuy.swift">
          <PersistentStrings>
             <PersistentString
-               value = "IconsBolt.Dick[&quot;name&quot;]">
+               value = "&quot;\&quot;&quot; + String(IconsBolt.Bolt[&quot;name&quot;]) + &quot;\&quot;&quot;">
             </PersistentString>
             <PersistentString
-               value = "&quot;\&quot;&quot; + String(IconsBolt.Bolt[&quot;name&quot;]) + &quot;\&quot;&quot;">
+               value = "IconsBolt.Dick[&quot;name&quot;]">
             </PersistentString>
             <PersistentString
                value = "nodeAtPoint(touchLocation).name">
@@ -171,6 +174,9 @@
          <PersistentStrings>
             <PersistentString
                value = "bolts[0].position">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.xScale">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -221,7 +227,7 @@
          contextName = "Singleplay.(repeatGame in _AE2BF829B8C1A12C287EC699B3E404B5)() -&gt; ():Singleplay.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.height">
+               value = "UIScreen.mainScreen().bounds.width">
             </PersistentString>
             <PersistentString
                value = "player.position">
@@ -233,7 +239,7 @@
                value = "Controller.xScale">
             </PersistentString>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.width">
+               value = "UIScreen.mainScreen().bounds.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -249,7 +255,7 @@
          contextName = "Controller.viewDidLoad() -&gt; ():Controller.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.width">
+               value = "UIScreen.mainScreen().bounds.height">
             </PersistentString>
             <PersistentString
                value = "Controller.yScale">
@@ -258,7 +264,7 @@
                value = "Controller.xScale">
             </PersistentString>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.height">
+               value = "UIScreen.mainScreen().bounds.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

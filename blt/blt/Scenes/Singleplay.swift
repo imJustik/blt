@@ -38,7 +38,8 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
     
     func createBolt()
     {
-        bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - 100 * Controller.yScale), impulse: CGVector(dx: 115*Controller.xScale, dy: 0))
+        bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - (100*Controller.xScale)), impulse: CGVector(dx:
+            115 * (Controller.xScale*0.925), dy: 0))
         if States.sharedInstance.boltType == BoltTypes.Dick{
         bolt!.sprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(States.sharedInstance.dickFrames, timePerFrame: 0.075, resize: false, restore: false)), withKey: "dick")
             
