@@ -29,12 +29,14 @@ class ChooseBuy: SKScene {
         fogging = SKSpriteNode(color: SKColor(red: 82/255, green: 51/255, blue: 41/255, alpha: 0.6),size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height))
         fogging.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds), y: CGRectGetMidY(UIScreen.mainScreen().bounds))
         fogging.zPosition = 7
-        addChild(fogging)
-        fogging.addChild(total)
+       
         
         addChild(background)
         addChild(player)
+        
         player.typeAnimation()
+        addChild(fogging)
+        fogging.addChild(total)
         
         generateIcons()
         

@@ -53,7 +53,7 @@ class Background: SKNode {
     
     private func addWalls(){
         //MARK: правая стена низ
-        let lWall = SKShapeNode(rect: CGRectMake(1, 1, 1,UIScreen.mainScreen().bounds.height/2.85 * 2))
+        let lWall = SKShapeNode(rect: CGRectMake(1, 1, 1,UIScreen.mainScreen().bounds.height/2.868 * 2))
         //lWall.position = CGPoint(x: 300, y: 300)
         lWall.position = CGPoint(x: CGRectGetMaxX(UIScreen.mainScreen().bounds) , y: CGRectGetMinY(UIScreen.mainScreen().bounds) + lWall.frame.size.height/2)
         lWall.physicsBody = SKPhysicsBody(rectangleOfSize: lWall.frame.size)

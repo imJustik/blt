@@ -27,12 +27,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADBannerViewDelegate  {
         //        controller.view.addSubview(adBannerView)
         //        controller.canDisplayBannerAds = true
         //
-        
         return true
     }
     
     
+//    func applicationDidEnterBackground(application: UIApplication) { //свернули
+//        if (controller.view as! SKView).scene is Singleplay {
+//        Controller.timerCreateBolt?.invalidate()
+//        Controller.timerCreateBolt = nil
+//        }
+//    }
+//    
+//    func applicationWillEnterForeground(application: UIApplication) { // развернули
+//        if (controller.view as! SKView).scene is Singleplay {
+//        (controller.view as! SKView).scene!.paused = true
+//    }
+//    }
+//    
+//    func applicationDidBecomeActive(application: UIApplication) {
+//        print("n")
+//
+//    }
+    
+    func applicationWillResignActive(application: UIApplication) {
+        Controller.timerCreateBolt?.invalidate()
+        Controller.timerCreateBolt = nil
+    }
+    
+ 
 }
+
 
 
 

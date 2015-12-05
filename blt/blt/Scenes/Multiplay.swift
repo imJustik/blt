@@ -4,7 +4,6 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
     
     private let background = Background()
     private let player = Player()
-    private var timerCreateBolt: NSTimer? = nil
     private var win: MultiplayerEnd? = nil
     private var bolt: Bolt? = nil
     private var maxHealth = 3
@@ -19,6 +18,8 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         self.scaleMode = .AspectFill
         self.size = view.bounds.size
+        Controller.timerCreateBolt?.invalidate()
+        Controller.timerCreateBolt = nil
         States.sharedInstance.score = 0
         States.sharedInstance.enemyHealth = maxHealth
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)
@@ -42,7 +43,8 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
     
     func createBolt()
     {
-        bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - 100 * Controller.yScale), impulse: CGVector(dx: 115 * Controller.xScale, dy: 0))
+        bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - (100*Controller.xScale)), impulse: CGVector(dx:
+            115 * (Controller.xScale*Controller.scaleImpulse), dy: 0))
         if States.sharedInstance.boltType == BoltTypes.Dick{
             bolt!.sprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(States.sharedInstance.dickFrames, timePerFrame: 0.075, resize: false, restore: false)), withKey: "dick")
             
@@ -67,8 +69,8 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
                 //background.closeGrid()
                 States.sharedInstance.saveState() //сохраняем статистику
                 States.sharedInstance.saveTotalBolts()
-                timerCreateBolt?.invalidate()
-                timerCreateBolt = nil
+                Controller.timerCreateBolt?.invalidate()
+                Controller.timerCreateBolt = nil
                 
                 States.sharedInstance.countLoose++ //Увеличиваем количество проигрышей(в синглтоне для того, что бы поражения в мультиплее тоже учитывались)
                 
@@ -99,8 +101,8 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
     
     private func repeatGame(){
         cleanBolts()
-        if timerCreateBolt == nil {
-            timerCreateBolt = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("createBolt"), userInfo: nil, repeats: true)
+        if Controller.timerCreateBolt == nil {
+            Controller.timerCreateBolt = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("createBolt"), userInfo: nil, repeats: true)
         }
         
         win?.removeFromParent()
@@ -126,8 +128,8 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
         case "pauseButton"?:
                 if win == nil{
                     win = MultiplayerEnd(flag: false) //отобразим сцену победы
-                    timerCreateBolt?.invalidate()
-                    timerCreateBolt = nil
+                    Controller.timerCreateBolt?.invalidate()
+                    Controller.timerCreateBolt = nil
                     addChild(win!)
                     let myStruct = Packet(name: "enemyExit", index: 2, numberOfPackets: 1)
                     EasyGameCenter.sendDataToAllPlayers(myStruct.archive(), modeSend: .Reliable)
@@ -207,8 +209,8 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
         if States.sharedInstance.enemyHealth <= 0 && States.sharedInstance.flag == false {
             if win == nil{
             win = MultiplayerEnd(flag: true) //отобразим сцену победы
-            timerCreateBolt?.invalidate()
-            timerCreateBolt = nil
+            Controller.timerCreateBolt?.invalidate()
+            Controller.timerCreateBolt = nil
             addChild(win!)
             }
         }

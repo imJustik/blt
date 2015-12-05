@@ -185,6 +185,7 @@ class Buy: SKScene {
                         }
                     } else {
                         //покупка за деньги
+                        if Controller.productArray.count > 0 {
                         switch elem?.nameProduct{
                         case "Bolt pink"?:
                           Controller.buyProduct(Controller.productArray[6])
@@ -195,7 +196,7 @@ class Buy: SKScene {
                         case "Night"?:
                             Controller.buyProduct(Controller.productArray[4])
                         default : print("takie dela")
-                            
+                            }
                         }
                         
                     }

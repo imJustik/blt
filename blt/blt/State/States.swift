@@ -51,7 +51,7 @@ class States {
         score = 0
         highScore = 0
         addAnimation()
-        cleanStatus() //Расскоментируй это, что бы сбрасывать покупки перед запуском
+       // cleanStatus() //Расскоментируй это, что бы сбрасывать покупки перед запуском
         // Load game state
         if defaults.valueForKey("boltType") != nil {
            boltType = defaults.valueForKey("boltType") as! String

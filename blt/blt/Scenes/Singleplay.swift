@@ -1,28 +1,34 @@
 import SpriteKit
 
-class Singleplay: SKScene, SKPhysicsContactDelegate {
+class Singleplay: SKScene, SKPhysicsContactDelegate, UIApplicationDelegate {
     private let background = Background()
     private let player = Player()
-    private var timerCreateBolt: NSTimer? = nil
     private var gameOver: SingleGameOver? = nil
     private var bolt: Bolt? = nil
     private var maxHealth = States.sharedInstance.livesCount
     private var currentHealth = 0
     private let hud = Hud()
-    private let pauseMenu = SinglePauseMenu()
+    private var pauseMenu: SinglePauseMenu? = nil
     private var bolts = [Bolt]()
+
     
     
     override func didMoveToView(view: SKView) {
         self.scaleMode = .AspectFill
         self.size = view.bounds.size
         //self.size = CGSize(width: 320, height: 568)
+        Controller.timerCreateBolt?.invalidate()
+        Controller.timerCreateBolt = nil
         States.sharedInstance.score = 0
+        self.name = "singleplay"
         physicsWorld.gravity = CGVector(dx: 0, dy: -2)
         addChild(background)
         addChild(player)
         player.startGame()
         background.startAnimation()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("appBecomeActive:"), name:UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("willResignActive:"), name:UIApplicationWillResignActiveNotification, object: nil)
+
         
         physicsWorld.contactDelegate = self
         
@@ -39,7 +45,7 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
     func createBolt()
     {
         bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - (100*Controller.xScale)), impulse: CGVector(dx:
-            115 * (Controller.xScale*0.925), dy: 0))
+            115 * (Controller.xScale*Controller.scaleImpulse), dy: 0))
         if States.sharedInstance.boltType == BoltTypes.Dick{
         bolt!.sprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(States.sharedInstance.dickFrames, timePerFrame: 0.075, resize: false, restore: false)), withKey: "dick")
             
@@ -60,8 +66,8 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
                 //background.closeGrid()
                 States.sharedInstance.saveState() //сохраняем статистику
                 States.sharedInstance.saveTotalBolts()
-                timerCreateBolt?.invalidate()
-                timerCreateBolt = nil
+                Controller.timerCreateBolt?.invalidate()
+                Controller.timerCreateBolt = nil
                 
                 States.sharedInstance.countLoose++ //Увеличиваем количество проигрышей(в синглтоне для того, что бы поражения в мультиплее тоже учитывались)
                 
@@ -92,8 +98,8 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
     
     private func repeatGame(){
         cleanBolts()
-        if timerCreateBolt == nil {
-            timerCreateBolt = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("createBolt"), userInfo: nil, repeats: true)
+        if Controller.timerCreateBolt == nil {
+            Controller.timerCreateBolt = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("createBolt"), userInfo: nil, repeats: true)
         }
         
         gameOver?.removeFromParent()
@@ -115,18 +121,20 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
         let touchLocation = touch.locationInNode(self)
         switch nodeAtPoint(touchLocation).name {
         case "pauseButton"?:
-            addChild(pauseMenu)
+            pauseMenu = SinglePauseMenu()
+            addChild(pauseMenu!)
             self.paused = true
-            timerCreateBolt?.invalidate()
-            timerCreateBolt = nil
+            Controller.timerCreateBolt?.invalidate()
+            Controller.timerCreateBolt = nil
         case "MenuFromPause"?:
             let scene = Start(size: size)
             self.view?.presentScene(scene)
         case "PlayFromPause"?:
-            pauseMenu.removeFromParent()
+            pauseMenu?.removeFromParent()
+            pauseMenu = nil
             self.paused = false
-            if timerCreateBolt == nil {
-                timerCreateBolt = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("createBolt"), userInfo: nil, repeats: true)
+            if Controller.timerCreateBolt == nil {
+                Controller.timerCreateBolt = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("createBolt"), userInfo: nil, repeats: true)
             }
         case "RepeateFromGameOver"?:
             repeatGame()
@@ -173,6 +181,27 @@ class Singleplay: SKScene, SKPhysicsContactDelegate {
         if (firstBody.categoryBitMask == BitMask.Bolt) && ( secondBody.categoryBitMask == BitMask.fl) {
             boltLeft()
         }
-    
     }
+    
+    override func update(currentTime: NSTimeInterval) {
+        if pauseMenu != nil && self.paused == false {
+            self.paused = true
+        }
+    }
+    
+    func appBecomeActive(notification : NSNotification) {
+        if pauseMenu == nil && gameOver == nil {
+        pauseMenu = SinglePauseMenu()
+        addChild(pauseMenu!)
+        }
+    }
+    
+    func willResignActive(notification : NSNotification){
+        if pauseMenu == nil && gameOver == nil  {
+            pauseMenu = SinglePauseMenu()
+            addChild(pauseMenu!)
+        }
+
+    }
+    
 }

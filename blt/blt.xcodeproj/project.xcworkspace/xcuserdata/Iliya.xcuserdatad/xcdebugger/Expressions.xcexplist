@@ -49,13 +49,24 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "AppDelegate.applicationDidEnterBackground(UIApplication) -&gt; ():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " (controller.view as! SKView).scene!.paused">
+            </PersistentString>
+            <PersistentString
+               value = "(controller.view as! SKView).scene">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Controller.easyGameCenterMatchRecept(GKMatch, didReceiveData : NSData, fromPlayer : String) -&gt; ():Controller.swift">
          <PersistentStrings>
             <PersistentString
-               value = "autre.index">
+               value = "States.sharedInstance.enemyHealth">
             </PersistentString>
             <PersistentString
-               value = "States.sharedInstance.enemyHealth">
+               value = "autre.index">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -133,6 +144,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Start.didMoveToView(SKView) -&gt; ():Start.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.bounds.size">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.yScale">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.xScale">
+            </PersistentString>
+            <PersistentString
+               value = "UIScreen.mainScreen().bounds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Singleplay.createBolt() -&gt; ():Singleplay.swift">
          <PersistentStrings>
             <PersistentString
@@ -156,10 +184,10 @@
          contextName = "ChooseBuy.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():ChooseBuy.swift">
          <PersistentStrings>
             <PersistentString
-               value = "&quot;\&quot;&quot; + String(IconsBolt.Bolt[&quot;name&quot;]) + &quot;\&quot;&quot;">
+               value = "IconsBolt.Dick[&quot;name&quot;]">
             </PersistentString>
             <PersistentString
-               value = "IconsBolt.Dick[&quot;name&quot;]">
+               value = "&quot;\&quot;&quot; + String(IconsBolt.Bolt[&quot;name&quot;]) + &quot;\&quot;&quot;">
             </PersistentString>
             <PersistentString
                value = "nodeAtPoint(touchLocation).name">
@@ -197,6 +225,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "AppDelegate.applicationWillResignActive(UIApplication) -&gt; ():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(controller.view as! SKView).scene!.paused">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.applicationDidBecomeActive(UIApplication) -&gt; ():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(controller.view as! SKView).scene!.paused ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Controller.paymentQueue(SKPaymentQueue, updatedTransactions : [SKPaymentTransaction]) -&gt; ():Controller.swift">
          <PersistentStrings>
             <PersistentString
@@ -227,7 +271,7 @@
          contextName = "Singleplay.(repeatGame in _AE2BF829B8C1A12C287EC699B3E404B5)() -&gt; ():Singleplay.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.width">
+               value = "UIScreen.mainScreen().bounds.height">
             </PersistentString>
             <PersistentString
                value = "player.position">
@@ -239,7 +283,7 @@
                value = "Controller.xScale">
             </PersistentString>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.height">
+               value = "UIScreen.mainScreen().bounds.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -255,7 +299,7 @@
          contextName = "Controller.viewDidLoad() -&gt; ():Controller.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.height">
+               value = "UIScreen.mainScreen().bounds.width">
             </PersistentString>
             <PersistentString
                value = "Controller.yScale">
@@ -264,7 +308,7 @@
                value = "Controller.xScale">
             </PersistentString>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds.width">
+               value = "UIScreen.mainScreen().bounds.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
