@@ -22,7 +22,8 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
         Controller.timerCreateBolt = nil
         States.sharedInstance.score = 0
         States.sharedInstance.enemyHealth = maxHealth
-        physicsWorld.gravity = CGVector(dx: 0, dy: -2)
+        States.sharedInstance.enemyScore = 0
+        physicsWorld.gravity = CGVector(dx: 0, dy: -2 * Controller.yScale)
         addChild(background)
         addChild(player)
         player.startGame()
@@ -130,6 +131,7 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
                     win = MultiplayerEnd(flag: false) //отобразим сцену победы
                     Controller.timerCreateBolt?.invalidate()
                     Controller.timerCreateBolt = nil
+                    Multiplay.hud.removeFromParent()
                     addChild(win!)
                     let myStruct = Packet(name: "enemyExit", index: 2, numberOfPackets: 1)
                     EasyGameCenter.sendDataToAllPlayers(myStruct.archive(), modeSend: .Reliable)
@@ -211,6 +213,8 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
             win = MultiplayerEnd(flag: true) //отобразим сцену победы
             Controller.timerCreateBolt?.invalidate()
             Controller.timerCreateBolt = nil
+            cleanBolts()
+            Multiplay.hud.removeFromParent()
             addChild(win!)
             }
         }

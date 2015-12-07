@@ -50,8 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADBannerViewDelegate  {
 //    }
     
     func applicationWillResignActive(application: UIApplication) {
+        if Controller.timerCreateBolt != nil {
         Controller.timerCreateBolt?.invalidate()
         Controller.timerCreateBolt = nil
+        }
     }
     
  

@@ -4,7 +4,7 @@ import SpriteKit
 import GameKit
 import StoreKit
 
-class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver
+class Controller: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver, EasyGameCenterDelegate
     {
     static var p = SKProduct()
     var skView: SKView? = nil
@@ -14,8 +14,6 @@ class Controller: UIViewController, EasyGameCenterDelegate, SKProductsRequestDel
     let productIdentifiers = Set(["com.treedeo.remove","com.treedeo.pink","com.treedeo.dick","com.treedeo.night","com.treedeo.moning","com.treedeo.fivebolt","com.treedeo.god","com.treedeo.onebolt","com.treedeo.tenbolts"])
     var product: SKProduct?
     static var scaleImpulse: CGFloat = 0
-    
-    
     static var productArray = Array<SKProduct>()
     static var xScale:CGFloat = 0
     static var yScale:CGFloat = 0

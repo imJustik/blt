@@ -39,7 +39,8 @@ class Hud: SKNode {
         lblScore.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds) - 50 * Controller.xScale, y: CGRectGetMidY(UIScreen.mainScreen().bounds)+180*Controller.yScale)
         lblScore.text = String(States.sharedInstance.score)
         addChild(lblScore)
-
+        
+        Hud.enemyScore.removeFromParent()
         Hud.enemyScore = SKLabelNode(fontNamed: "Futura Md BT Bold")
         Hud.enemyScore.fontSize = 40
         Hud.enemyScore.fontColor = SKColor.whiteColor()
