@@ -7,6 +7,7 @@ class ChooseBuy: SKScene {
     private var fogging = SKSpriteNode()
     private var type : ProductsType = ProductsType.Bolt
     private var background = Background()
+    let player = Player()
   //  private var y: Types = Types.iconsBolt
     
     private var i = 0
@@ -24,7 +25,7 @@ class ChooseBuy: SKScene {
     }
     
     override func didMoveToView(view: SKView) {
-        let player = Player()
+       
         
         fogging = SKSpriteNode(color: SKColor(red: 82/255, green: 51/255, blue: 41/255, alpha: 0.6),size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height))
         fogging.position = CGPoint(x: CGRectGetMidX(UIScreen.mainScreen().bounds), y: CGRectGetMidY(UIScreen.mainScreen().bounds))
@@ -41,7 +42,8 @@ class ChooseBuy: SKScene {
         generateIcons()
         
         let backButton = SKSpriteNode(imageNamed: "Button Back")
-        backButton.position = CGPoint(x:iconMass[count/4][1].position.x, y: iconMass[count/4][1].position.y - 60)
+        Controller.changeSize(backButton)
+        backButton.position = CGPoint(x:iconMass[count/4][1].position.x, y: iconMass[count/4][1].position.y - 60 * Controller.yScale)
         backButton.name = "BackFromChooseBuy"
         fogging.addChild(backButton)
         
@@ -49,18 +51,19 @@ class ChooseBuy: SKScene {
     }
     private func generateIcons(){
         var massLine = [Icon]()
-        var position = CGPoint(x: -60, y: 50)
+        var position = CGPoint(x: -60*Controller.xScale, y: 50*Controller.yScale)
         for var i = 0; i<count/3; i++ {
             for var j = 0; j < 3; j++ {
                 let node = Icon(nameProduct: "", image: "Button question", stat: 3, productId: "0", priceBolt: 0, priceMoney: 0)
+                Controller.changeSize(node)
                 node.position = position
                 node.name = "question"
                 fogging.addChild(node)
-                position.x+=60
+                position.x+=60*Controller.xScale
                 massLine.append(node)
             }
-            position.x = -60
-            position.y -= 60
+            position.x = -60*Controller.xScale
+            position.y -= 60*Controller.yScale
             iconMass.append(massLine)
             massLine = [Icon]()
         }
@@ -87,6 +90,7 @@ class ChooseBuy: SKScene {
     func load(elem: [String:AnyObject]) {
         print(elem["status"] as! Int)
         let node = Icon(nameProduct: String(elem["name"]!), image: String(elem["image"]!), stat: (elem["status"] as! Int), productId: String(elem["productId"]), priceBolt: (elem["costBolt"] as! Int), priceMoney: (elem["costMoney"] as! Int))
+        Controller.changeSize(node)
         node.position = iconMass[i][j].position
         node.name = String(elem["image"]!)
         iconMass[i][j].removeFromParent()

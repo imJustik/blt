@@ -11,6 +11,7 @@ class Player: GameObjects {
         Controller.changeSize(foot)
         Controller.changeSize(foot2)
         position = CGPoint(x: CGRectGetMidX(bounds)-65*Controller.xScale, y: CGRectGetMidY(bounds)-129*Controller.yScale)
+        sprite.zPosition = 1
         addChild(sprite)
     }
     func typeAnimation(){

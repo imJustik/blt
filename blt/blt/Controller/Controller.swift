@@ -13,7 +13,6 @@ class Controller: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
     var window: UIWindow?
     let productIdentifiers = Set(["com.treedeo.remove","com.treedeo.pink","com.treedeo.dick","com.treedeo.night","com.treedeo.moning","com.treedeo.fivebolt","com.treedeo.god","com.treedeo.onebolt","com.treedeo.tenbolts"])
     var product: SKProduct?
-    static var scaleImpulse: CGFloat = 0
     static var productArray = Array<SKProduct>()
     static var xScale:CGFloat = 0
     static var yScale:CGFloat = 0
@@ -26,11 +25,11 @@ class Controller: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         Controller.xScale = UIScreen.mainScreen().bounds.width / CGFloat(320.0)
         Controller.yScale = UIScreen.mainScreen().bounds.height / CGFloat(568.0)
-        switch UIScreen.mainScreen().bounds.height {
-        case 667: Controller.scaleImpulse = 0.925
-        case 736: Controller.scaleImpulse = 0.86
-        default: Controller.scaleImpulse = 1
-        }
+//        switch UIScreen.mainScreen().bounds.height {
+//        case 667: Controller.scaleImpulse = 0.925
+//        case 736: Controller.scaleImpulse = 0.86
+//        default: Controller.scaleImpulse = 1
+//        }
     }
     class func changeSize(node:SKSpriteNode){
         node.size.height *= yScale
@@ -204,7 +203,7 @@ class Controller: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
                     case "com.treedeo.tenbolts":
                         States.sharedInstance.livesCount+=10
                         States.sharedInstance.saveState()
-                    case "com.treedeo.god": print("YOU ARE GOD")
+                    case "com.treedeo.god": States.sharedInstance.livesCount = 99999999
                     default : print("не то купили")
                     }
                     Controller.elem?.status = 2

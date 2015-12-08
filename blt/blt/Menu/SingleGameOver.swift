@@ -13,7 +13,7 @@ class SingleGameOver: SKNode {
         
         let goLabel = SKLabelNode(fontNamed: "Futura Md BT Bold")
         goLabel.text = "GAME OVER"
-        goLabel.fontSize = 27
+        goLabel.fontSize = 27 * Controller.xScale
         goLabel.position = CGPoint(x: 0, y: CGRectGetMidY(fogging.frame)/3)
         fogging.addChild(goLabel)
         
@@ -24,11 +24,13 @@ class SingleGameOver: SKNode {
         
         let scoreLabel = SKLabelNode(text: String(States.sharedInstance.score))
         scoreLabel.position = CGPoint(x: pauseLabel.position.x - 50*Controller.xScale, y: pauseLabel.position.y - 45*Controller.yScale)
+        scoreLabel.fontSize *= Controller.xScale
         scoreLabel.fontName = "Futura Md BT Bold"
         fogging.addChild(scoreLabel)
         
         let recordLabel = SKLabelNode(text: String(States.sharedInstance.highScore))
         recordLabel.position = CGPoint(x: pauseLabel.position.x + 45 * Controller.xScale, y: pauseLabel.position.y - 45 * Controller.yScale)
+        recordLabel.fontSize *= Controller.xScale
         recordLabel.fontName = "Futura Md BT Bold"
         fogging.addChild(recordLabel)
         

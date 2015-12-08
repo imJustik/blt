@@ -102,11 +102,21 @@ class States {
         }
         
         //MARK: анимация поворота
+        if playerType == PlayerTypes.Men {
         let rotationAtlas = SKTextureAtlas(named: "Rotation_small.atlas")
         numImages = rotationAtlas.textureNames.count
         for var i=0; i<numImages; i++ {
             let rotTextureName = "Rotation_small_\(i).png"
             rotationFrames.append(rotationAtlas.textureNamed(rotTextureName))
+        }
+        } else if playerType == PlayerTypes.Girl {
+            let rotationAtlas = SKTextureAtlas(named: "Girl.atlas")
+            numImages = rotationAtlas.textureNames.count
+            for var i=0; i<numImages; i++ {
+                let rotTextureName = "Girl_\(i).png"
+                rotationFrames.append(rotationAtlas.textureNamed(rotTextureName))
+            }
+
         }
         //MARK: анимация куллера
         let culerAtlas = SKTextureAtlas(named: "culer.atlas")

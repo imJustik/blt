@@ -61,24 +61,25 @@ class Buy: SKScene {
         let titleLabel = SKLabelNode(fontNamed: "Futura Md BT Medium") //надпись shop
         titleLabel.text = title
         titleLabel.position = CGPoint(x: CGRectGetMinX(fogging.frame), y: CGRectGetMidY(fogging.frame)/3 )
-        titleLabel.fontSize = 25
+        titleLabel.fontSize = 25 * Controller.xScale
         fogging.addChild(titleLabel)
         
         icon = SKSpriteNode(texture: texture)
         icon.position = CGPoint(x: titleLabel.position.x, y: titleLabel.position.y - icon.frame.size.height/1.25)
+        Controller.changeSize(icon)
         fogging.addChild(icon)
         
          //надпись shop
         boltCostButton.text = "BOLTS"
-        boltCostButton.position = CGPoint(x: icon.position.x - 60, y: icon.position.y - 100 )
-        boltCostButton.fontSize = 13
+        boltCostButton.position = CGPoint(x: icon.position.x - 60*Controller.xScale, y: icon.position.y - 100*Controller.yScale )
+        boltCostButton.fontSize = 13 * Controller.xScale
         fogging.addChild(boltCostButton)
         
         
          //надпись shop
         moneyCostButton.text = "MONEY"
-        moneyCostButton.position = CGPoint(x: icon.position.x + 60, y: boltCostButton.position.y)
-        moneyCostButton.fontSize = 13
+        moneyCostButton.position = CGPoint(x: icon.position.x + 60*Controller.xScale, y: boltCostButton.position.y)
+        moneyCostButton.fontSize = 13 * Controller.xScale
         fogging.addChild(moneyCostButton)
         
         createBoltButton(false)
@@ -92,14 +93,14 @@ class Buy: SKScene {
         if flag { empyButton = SKSpriteNode(imageNamed: "Button empty black") } else {
             empyButton = SKSpriteNode(imageNamed: "Button empty")
         }
-        
-        empyButton.position = CGPoint(x: boltCostButton.position.x, y: boltCostButton.position.y - 30)
+        Controller.changeSize(empyButton)
+        empyButton.position = CGPoint(x: boltCostButton.position.x, y: boltCostButton.position.y - 30 * Controller.yScale)
         empyButton.name = "emptyButton"
         empyButton.zPosition = 8
         
         let textCostBolt = SKLabelNode(fontNamed: "Futura Md BT Bold") //надпись shop
-        textCostBolt.position = CGPoint(x: 0, y: -7)
-        textCostBolt.fontSize = 17
+        textCostBolt.position = CGPoint(x: 0, y: -7*Controller.yScale)
+        textCostBolt.fontSize = 17 * Controller.xScale
         textCostBolt.name = "emptyButton"
         textCostBolt.text = String(boltCost)
         empyButton.addChild(textCostBolt)
@@ -111,14 +112,14 @@ class Buy: SKScene {
         if flag { moneyButton = SKSpriteNode(imageNamed: "Button money black") } else {
             moneyButton = SKSpriteNode(imageNamed: "Button money")
         }
-        
-            moneyButton.position = CGPoint(x: moneyCostButton.position.x, y: moneyCostButton.position.y - 30)
+            Controller.changeSize(moneyButton)
+            moneyButton.position = CGPoint(x: moneyCostButton.position.x, y: moneyCostButton.position.y - 30*Controller.yScale)
             moneyButton.name = "moneyButton"
             moneyButton.zPosition = 8
             
             let textMoneyBolt = SKLabelNode(fontNamed: "Futura Md BT Bold") //надпись shop
-            textMoneyBolt.position = CGPoint(x: 8, y: -7)
-            textMoneyBolt.fontSize = 17
+            textMoneyBolt.position = CGPoint(x: 8*Controller.xScale, y: -7*Controller.yScale)
+            textMoneyBolt.fontSize = 17 *  Controller.xScale
             textMoneyBolt.name = "moneyButton"
             textMoneyBolt.text = String(moneyCost)
             moneyButton.addChild(textMoneyBolt)
@@ -127,11 +128,13 @@ class Buy: SKScene {
     
     private func addButtons(){
         let buyButton = SKSpriteNode(imageNamed: "Button buy")
+        Controller.changeSize(buyButton)
         buyButton.position = CGPoint(x: icon.position.x, y: empyButton.position.y * 1.65)
         buyButton.name = "BuyButton"
         fogging.addChild(buyButton)
         
         let back = SKSpriteNode(imageNamed: "Button back")
+        Controller.changeSize(back)
         back.position = CGPoint(x: buyButton.position.x, y: buyButton.position.y * 1.7)
         back.name = "back"
         fogging.addChild(back)

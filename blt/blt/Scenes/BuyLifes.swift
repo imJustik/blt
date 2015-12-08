@@ -39,52 +39,64 @@ class BuyLifes: SKScene {
         addChild(fogging)
         //количество болтов
         oneLife.name = "oneLife"
-        oneLife.position = CGPoint(x: -66, y: 130)
+        Controller.changeSize(oneLife)
+        oneLife.position = CGPoint(x: -66*Controller.xScale, y: 130*Controller.yScale)
         fogging.addChild(oneLife)
         
         fiveLife.name = "fiveLife"
-        fiveLife.position = CGPoint(x: oneLife.position.x, y: oneLife.position.y - 75)
+        Controller.changeSize(fiveLife)
+        fiveLife.position = CGPoint(x: oneLife.position.x, y: oneLife.position.y - 75*Controller.yScale)
         fogging.addChild(fiveLife)
         
         tenLife.name = "tenLife"
-        tenLife.position = CGPoint(x: fiveLife.position.x, y: fiveLife.position.y - 75)
+        Controller.changeSize(tenLife)
+        tenLife.position = CGPoint(x: fiveLife.position.x, y: fiveLife.position.y - 75*Controller.yScale)
         fogging.addChild(tenLife)
         
         godLife.name = "godLife"
-        godLife.position = CGPoint(x: tenLife.position.x, y: tenLife.position.y - 75)
+        Controller.changeSize(godLife)
+        godLife.position = CGPoint(x: tenLife.position.x, y: tenLife.position.y - 75*Controller.yScale)
         fogging.addChild(godLife)
         
          //палочки
-        dash.position = CGPoint(x: oneLife.position.x + 60, y: oneLife.position.y)
+        dash.position = CGPoint(x: oneLife.position.x + 60 * Controller.xScale, y: oneLife.position.y)
+        Controller.changeSize(dash)
         fogging.addChild(dash)
         
-        dash1.position = CGPoint(x: fiveLife.position.x + 60, y: fiveLife.position.y)
+        dash1.position = CGPoint(x: fiveLife.position.x + 60 * Controller.xScale, y: fiveLife.position.y)
+        Controller.changeSize(dash1)
         fogging.addChild(dash1)
         
-        dash2.position = CGPoint(x: tenLife.position.x + 60, y: tenLife.position.y)
+        dash2.position = CGPoint(x: tenLife.position.x + 60 * Controller.xScale, y: tenLife.position.y)
+        Controller.changeSize(dash2)
         fogging.addChild(dash2)
         
-        dash3.position = CGPoint(x: godLife.position.x + 60, y: godLife.position.y)
+        dash3.position = CGPoint(x: godLife.position.x + 60 * Controller.xScale, y: godLife.position.y)
+        Controller.changeSize(dash3)
         fogging.addChild(dash3)
         
         //стоймость
         
-        oneCost.position = CGPoint(x: dash.position.x + 60, y: dash.position.y)
+        oneCost.position = CGPoint(x: dash.position.x + 60 * Controller.xScale, y: dash.position.y)
         oneCost.name  = "oneLife"
+        Controller.changeSize(oneCost)
         fogging.addChild(oneCost)
         
-        fiveCost.position = CGPoint(x: dash1.position.x + 60, y: dash1.position.y)
+        fiveCost.position = CGPoint(x: dash1.position.x + 60 * Controller.xScale, y: dash1.position.y)
+        Controller.changeSize(fiveCost)
         fiveCost.name = "fiveLife"
 
         fogging.addChild(fiveCost)
         
-        tenCost.position = CGPoint(x: dash2.position.x + 60, y: dash2.position.y)
+        tenCost.position = CGPoint(x: dash2.position.x + 60 * Controller.xScale, y: dash2.position.y)
+        Controller.changeSize(tenCost)
         tenCost.name = "tenLife"
 
         fogging.addChild(tenCost)
         
         
-        godCost.position = CGPoint(x: dash3.position.x + 60, y: dash3.position.y)
+        godCost.position = CGPoint(x: dash3.position.x + 60 * Controller.xScale, y: dash3.position.y)
+        Controller.changeSize(godCost)
         godCost.name = "godLife"
   
         fogging.addChild(godCost)
@@ -92,6 +104,7 @@ class BuyLifes: SKScene {
         let back = SKSpriteNode(imageNamed: "Button back")
         back.position = CGPoint(x: dash3.position.x, y: dash3.position.y * 2)
         back.name = "back"
+        Controller.changeSize(back)
         fogging.addChild(back)
     }
     
@@ -105,24 +118,26 @@ class BuyLifes: SKScene {
             oneCost.removeFromParent()
             oneLife = SKSpriteNode(imageNamed: "Button 1 life black")
             oneCost = SKSpriteNode(imageNamed: "Button money black")
-            oneLife.position = CGPoint(x: -66, y: 130)
+            oneLife.position = CGPoint(x: -66*Controller.xScale, y: 130*Controller.yScale)
            // fogging.addChild(oneLife)
-            
-            oneCost.position = CGPoint(x: dash.position.x + 60, y: dash.position.y)
+           // Controller.changeSize(oneLife)
+            Controller.changeSize(oneCost)
+            oneCost.position = CGPoint(x: dash.position.x + 60*Controller.xScale, y: dash.position.y)
             fogging.addChild(oneCost)
             Controller.p = Controller.productArray[5]
             Controller.buyProduct(Controller.productArray[5])
             select = true
-            
             
         case "fiveLife"?:
             //oneLife.removeFromParent()
             fiveCost.removeFromParent()
             fiveLife = SKSpriteNode(imageNamed: "Button 1 life black")
             fiveCost = SKSpriteNode(imageNamed: "Button money black")
-            fiveLife.position = CGPoint(x: -66, y: 130)
+            fiveLife.position = CGPoint(x: -66*Controller.xScale, y: 130*Controller.yScale)
             // fogging.addChild(oneLife)
-            fiveCost.position = CGPoint(x: dash1.position.x + 60, y: dash1.position.y)
+            // Controller.changeSize(oneLife)
+            Controller.changeSize(fiveCost)
+            fiveCost.position = CGPoint(x: dash1.position.x + 60*Controller.xScale, y: dash1.position.y)
             fogging.addChild(fiveCost)
             Controller.p = Controller.productArray[1]
             Controller.buyProduct(Controller.productArray[1])
@@ -132,10 +147,11 @@ class BuyLifes: SKScene {
             tenCost.removeFromParent()
             tenLife = SKSpriteNode(imageNamed: "Button 1 life black")
             tenCost = SKSpriteNode(imageNamed: "Button money black")
-            tenLife.position = CGPoint(x: -66, y: 130)
+            tenLife.position = CGPoint(x: -66*Controller.xScale, y: 130*Controller.yScale)
             // fogging.addChild(oneLife)
-            
-            tenCost.position = CGPoint(x: dash2.position.x + 60, y: dash2.position.y)
+            // Controller.changeSize(oneLife)
+            Controller.changeSize(tenCost)
+            tenCost.position = CGPoint(x: dash2.position.x + 60*Controller.xScale, y: dash2.position.y)
             fogging.addChild(tenCost)
             Controller.p = Controller.productArray[8]
             Controller.buyProduct(Controller.productArray[8])
@@ -145,10 +161,11 @@ class BuyLifes: SKScene {
             godCost.removeFromParent()
             godLife = SKSpriteNode(imageNamed: "Button 1 life black")
             godCost = SKSpriteNode(imageNamed: "Button money black")
-            godLife.position = CGPoint(x: -66, y: 130)
+            godLife.position = CGPoint(x: -66*Controller.xScale, y: 130*Controller.yScale)
             // fogging.addChild(oneLife)
-            
-            godCost.position = CGPoint(x: dash3.position.x + 60, y: dash3.position.y)
+            // Controller.changeSize(oneLife)
+            Controller.changeSize(godCost)
+            godCost.position = CGPoint(x: dash3.position.x + 60*Controller.xScale, y: dash3.position.y)
             fogging.addChild(godCost)
             Controller.p = Controller.productArray[2]
             Controller.buyProduct(Controller.productArray[2])

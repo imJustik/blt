@@ -26,21 +26,23 @@ class ComingSoon: SKScene {
         
         let titleLabel = SKLabelNode(fontNamed: "Futura Md BT Bold") //надпись shop
         titleLabel.text = "COMING"
-        titleLabel.position = CGPoint(x: 0, y: -70 )
-        titleLabel.fontSize = 32
+        titleLabel.position = CGPoint(x: 0, y: -70 * Controller.yScale )
+        titleLabel.fontSize = 32 * Controller.xScale
         fogging.addChild(titleLabel)
         
         let titleLabel1 = SKLabelNode(fontNamed: "Futura Md BT Bold") //надпись shop
         titleLabel1.text = "SOON"
-        titleLabel1.position = CGPoint(x: 0, y: -100 )
-        titleLabel1.fontSize = 32
+        titleLabel1.position = CGPoint(x: 0, y: -100 * Controller.yScale )
+        titleLabel1.fontSize = 32 * Controller.xScale
         fogging.addChild(titleLabel1)
         
         let icon = SKSpriteNode(imageNamed: "Button question")
+        Controller.changeSize(icon)
         icon.position = CGPoint(x: 0, y: CGRectGetMidY(fogging.frame) / 3)
         fogging.addChild(icon)
 
         let back = SKSpriteNode(imageNamed: "Button back")
+        Controller.changeSize(back)
         back.position = CGPoint(x: titleLabel1.position.x, y: titleLabel1.position.y * 2)
         back.name = "back"
         fogging.addChild(back)

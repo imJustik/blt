@@ -13,26 +13,30 @@ class MultiplayerEnd: SKNode {
         }
         else {
             goLabel.text = "YOU LOSE" }
-        
+        goLabel.fontSize *=  Controller.xScale
         goLabel.position = CGPoint(x: 0, y: CGRectGetMidY(menu.frame)/3)
         menu.addChild(goLabel)
         
         let pauseLabel = SKSpriteNode(imageNamed: "Me enemy")
-        pauseLabel.position = CGPoint(x: 0, y: goLabel.position.y - 30)
+        Controller.changeSize(pauseLabel)
+        pauseLabel.position = CGPoint(x: 0, y: goLabel.position.y - 30*Controller.yScale)
         menu.addChild(pauseLabel)
         
         let scoreLabel = SKLabelNode(text: String(States.sharedInstance.score))
-        scoreLabel.position = CGPoint(x: pauseLabel.position.x - 50, y: pauseLabel.position.y - 45)
+        scoreLabel.position = CGPoint(x: pauseLabel.position.x - 50*Controller.xScale, y: pauseLabel.position.y - 45*Controller.yScale)
+        scoreLabel.fontSize *=  Controller.xScale
         scoreLabel.fontName = "Futura Md BT Bold"
         menu.addChild(scoreLabel)
         
         let recordLabel = SKLabelNode(text: String(States.sharedInstance.enemyScore))
-        recordLabel.position = CGPoint(x: pauseLabel.position.x + 45, y: pauseLabel.position.y - 45)
+        recordLabel.position = CGPoint(x: pauseLabel.position.x + 45*Controller.xScale, y: pauseLabel.position.y - 45*Controller.yScale)
+        recordLabel.fontSize *= Controller.xScale
         recordLabel.fontName = "Futura Md BT Bold"
         menu.addChild(recordLabel)
         
         let menuButton = SKSpriteNode(imageNamed: "Menu black")
-        menuButton.position = CGPoint(x: 0 , y: pauseLabel.position.y - 80)
+        Controller.changeSize(pauseLabel)
+        menuButton.position = CGPoint(x: 0 , y: pauseLabel.position.y - 80*Controller.yScale)
         menuButton.name = "MenuFromGameOver"
         menu.addChild(menuButton)
         

@@ -30,46 +30,54 @@ class Settings: SKScene {
         
         let officeLabel = SKLabelNode(fontNamed: "Futura Md BT Bold") //надпись office
         officeLabel.text = "OFFICE"
-        officeLabel.fontSize = 25
-        officeLabel.position = CGPoint(x: 0, y: 100)
+        officeLabel.fontSize = 25 * Controller.xScale
+        officeLabel.position = CGPoint(x: 0, y: 100 * Controller.yScale )
         fogging.addChild(officeLabel)
         
         let shopLabel = SKLabelNode(fontNamed: "Futura Md BT Bold") //надпись shop
         shopLabel.text = "SHOP"
-        shopLabel.position = CGPoint(x: officeLabel.position.x, y: officeLabel.position.y - 100)
-        shopLabel.fontSize = 25
+        shopLabel.position = CGPoint(x: officeLabel.position.x, y: officeLabel.position.y - 100 * Controller.yScale )
+        shopLabel.fontSize = 25 * Controller.xScale
         fogging.addChild(shopLabel)
 //назад
         let backButton = SKSpriteNode(imageNamed: "Button Back") //конпка back
-        backButton.position = CGPoint(x: shopLabel.position.x, y: shopLabel.position.y - 100)
+        Controller.changeSize(backButton)
+        backButton.position = CGPoint(x: shopLabel.position.x, y: shopLabel.position.y - 100 * Controller.yScale)
         backButton.name = "BackFromSettings"
         fogging.addChild(backButton)
         
 //болт
-        bolt.position = CGPoint(x: officeLabel.position.x, y: officeLabel.position.y - 40)
+        Controller.changeSize(bolt)
+        bolt.position = CGPoint(x: officeLabel.position.x * Controller.xScale, y: officeLabel.position.y - 40 * Controller.yScale)
         bolt.name = "bolt"
         fogging.addChild(bolt)
 //окно
-        window.position = CGPoint(x: bolt.position.x - 70, y: bolt.position.y)
+        Controller.changeSize(window)
+        window.position = CGPoint(x: bolt.position.x - 70 * Controller.xScale, y: bolt.position.y)
         window.name = "window"
         fogging.addChild(window)
 //персонаж
-        person.position = CGPoint(x: bolt.position.x + 70, y: bolt.position.y)
+        Controller.changeSize(person)
+        person.position = CGPoint(x: bolt.position.x + 70 * Controller.xScale, y: bolt.position.y)
         person.name = "person"
         fogging.addChild(person)
 //жизни
-        life.position = CGPoint(x: shopLabel.position.x, y: shopLabel.position.y - 40)
+        Controller.changeSize(life)
+        life.position = CGPoint(x: shopLabel.position.x, y: shopLabel.position.y - 40 * Controller.yScale)
         life.name = "life"
         fogging.addChild(life)
  //выключение рекламы
+        
         if States.sharedInstance.buyAds == true {
             adsOff = SKSpriteNode(imageNamed: "Button Add off black")
         }
-        adsOff.position = CGPoint(x: life.position.x - 70, y: life.position.y)
+        Controller.changeSize(adsOff)
+        adsOff.position = CGPoint(x: life.position.x - 70 * Controller.xScale, y: life.position.y)
         adsOff.name = "adsOff"
         fogging.addChild(adsOff)
 // офис
-        office.position = CGPoint(x: life.position.x + 70, y: adsOff.position.y)
+        Controller.changeSize(office)
+        office.position = CGPoint(x: life.position.x + 70 * Controller.xScale, y: adsOff.position.y)
         office.name = "office"
         fogging.addChild(office)
     
@@ -105,7 +113,8 @@ class Settings: SKScene {
             if States.sharedInstance.buyAds == false {
                 adsOff.removeFromParent()
                 adsOff = SKSpriteNode(imageNamed:"Button Add off black")
-                adsOff.position = CGPoint(x: life.position.x - 70, y: life.position.y)
+                Controller.changeSize(adsOff)
+                adsOff.position = CGPoint(x: life.position.x - 70 * Controller.xScale, y: life.position.y)
                 fogging.addChild(adsOff)
                 Controller.p = Controller.productArray[7]
                 Controller.buyProduct(Controller.productArray[7])

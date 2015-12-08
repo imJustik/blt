@@ -3,6 +3,9 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "Controller.productsRequest(SKProductsRequest, didReceiveResponse : SKProductsResponse) -&gt; ():Controller.swift">
+      </ContextState>
+      <ContextState
          contextName = "States.init() -&gt; States:States.swift">
          <PersistentStrings>
             <PersistentString
@@ -14,6 +17,106 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ChooseBuy.(clickOnitem in _E6C7A294985064F51D278E33D4E38D19)(SKSpriteNode) -&gt; ():ChooseBuy.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "item.texture?.description">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Controller.viewDidLoad() -&gt; ():Controller.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIScreen.mainScreen().bounds.height">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.yScale">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.xScale">
+            </PersistentString>
+            <PersistentString
+               value = "UIScreen.mainScreen().bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Singleplay.didMoveToView(SKView) -&gt; ():Singleplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "States.sharedInstance.score">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Singleplay.didBeginContact(SKPhysicsContact) -&gt; ():Singleplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bolts[0].position">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.xScale">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.applicationWillResignActive(UIApplication) -&gt; ():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(controller.view as! SKView).scene!.paused">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static IconsBolt.setSelect() -&gt; ():IconsBolt.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "IconsBolt.Bolt[&quot;status&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Controller.paymentQueue(SKPaymentQueue, updatedTransactions : [SKPaymentTransaction]) -&gt; ():Controller.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "prodId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "globalinit_33_3CE10602304C41B9E38AEE687B6C1BF5_func0:IconsBolt.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Bolt[&quot;status&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ElementStatus.Dick.unsafeMutableAddressor:ElementStatus.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Dick">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Start.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():Start.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tNode.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Buy.init(title : String, texture : SKTexture, boltCost : Int, moneyCost : Int, size : CGSize) -&gt; Buy:Buy.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "empyButton">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "globalinit_33_61C223BC5327647A3B0A843DE5F57D3C_func0:ElementStatus.swift">
          <PersistentStrings>
             <PersistentString
@@ -21,22 +124,6 @@
             </PersistentString>
             <PersistentString
                value = "Bolt">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ChooseBuy.(generateIcons in _E6C7A294985064F51D278E33D4E38D19)() -&gt; ():ChooseBuy.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "iconMass">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "IconsBolt.Bolt.unsafeMutableAddressor:IconsBolt.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "Bolt[&quot;status&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -60,21 +147,110 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Controller.easyGameCenterMatchRecept(GKMatch, didReceiveData : NSData, fromPlayer : String) -&gt; ():Controller.swift">
+         contextName = "ChooseBuy.(generateIcons in _E6C7A294985064F51D278E33D4E38D19)() -&gt; ():ChooseBuy.swift">
          <PersistentStrings>
             <PersistentString
-               value = "States.sharedInstance.enemyHealth">
-            </PersistentString>
-            <PersistentString
-               value = "autre.index">
+               value = "iconMass">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Buy.init(title : String, texture : SKTexture, boltCost : Int, moneyCost : Int, size : CGSize) -&gt; Buy:Buy.swift">
+         contextName = "Hud.addHealth(Int) -&gt; ():Hud.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "hl.position">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Singleplay.(repeatGame in _AE2BF829B8C1A12C287EC699B3E404B5)() -&gt; ():Singleplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIScreen.mainScreen().bounds.width">
+            </PersistentString>
+            <PersistentString
+               value = "player.position">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.yScale">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.xScale">
+            </PersistentString>
+            <PersistentString
+               value = "UIScreen.mainScreen().bounds.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IconsBolt.Bolt.unsafeMutableAddressor:IconsBolt.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Bolt[&quot;status&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ChooseBuy.load([String : AnyObject]) -&gt; ():ChooseBuy.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "elem[&quot;status&quot;]as! Int64">
+            </PersistentString>
+            <PersistentString
+               value = "i">
+            </PersistentString>
+            <PersistentString
+               value = "elem[&quot;status&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "j">
+            </PersistentString>
+            <PersistentString
+               value = "iconMass">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Singleplay.init(size : CGSize) -&gt; Singleplay:Singleplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "States.sharedInstance.livesCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Settings.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():Settings.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nodeAtPoint(touchLocation)">
+            </PersistentString>
+            <PersistentString
+               value = "Controller.productArray.count&gt;0">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Buy.createBoltButton(Bool) -&gt; ():Buy.swift">
          <PersistentStrings>
             <PersistentString
                value = "empyButton">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ChooseBuy.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():ChooseBuy.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "&quot;\&quot;&quot; + String(IconsBolt.Bolt[&quot;name&quot;]) + &quot;\&quot;&quot;">
+            </PersistentString>
+            <PersistentString
+               value = "IconsBolt.Dick[&quot;name&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "nodeAtPoint(touchLocation).name">
+            </PersistentString>
+            <PersistentString
+               value = "String(nodeAtPoint(touchLocation).name!)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -93,53 +269,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Singleplay.init(size : CGSize) -&gt; Singleplay:Singleplay.swift">
+         contextName = "AppDelegate.applicationDidBecomeActive(UIApplication) -&gt; ():AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
-               value = "States.sharedInstance.livesCount">
+               value = "(controller.view as! SKView).scene!.paused ">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Background.(addWalls in _CE36B35D1B740BCB427BC0001CA01D3C)() -&gt; ():Background.swift">
+         contextName = "States.addAnimation() -&gt; ():States.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIScreen.mainScreen().bounds">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "globalinit_33_3CE10602304C41B9E38AEE687B6C1BF5_func0:IconsBolt.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "Bolt[&quot;status&quot;]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Settings.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():Settings.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "nodeAtPoint(touchLocation)">
+               value = "States.sharedInstance.playerType">
             </PersistentString>
             <PersistentString
-               value = "Controller.productArray.count&gt;0">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Buy.didMoveToView(SKView) -&gt; ():Buy.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "icon">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Singleplay.didMoveToView(SKView) -&gt; ():Singleplay.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "States.sharedInstance.score">
+               value = "States.sharedInstance.playerType == PlayerTypes.Men">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -181,154 +325,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ChooseBuy.touchesBegan(Set&lt;UITouch&gt;, withEvent : UIEvent?) -&gt; ():ChooseBuy.swift">
+         contextName = "Buy.didMoveToView(SKView) -&gt; ():Buy.swift">
          <PersistentStrings>
             <PersistentString
-               value = "IconsBolt.Dick[&quot;name&quot;]">
-            </PersistentString>
-            <PersistentString
-               value = "&quot;\&quot;&quot; + String(IconsBolt.Bolt[&quot;name&quot;]) + &quot;\&quot;&quot;">
-            </PersistentString>
-            <PersistentString
-               value = "nodeAtPoint(touchLocation).name">
-            </PersistentString>
-            <PersistentString
-               value = "String(nodeAtPoint(touchLocation).name!)">
+               value = "icon">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Singleplay.didBeginContact(SKPhysicsContact) -&gt; ():Singleplay.swift">
+         contextName = "Controller.easyGameCenterMatchRecept(GKMatch, didReceiveData : NSData, fromPlayer : String) -&gt; ():Controller.swift">
          <PersistentStrings>
             <PersistentString
-               value = "bolts[0].position">
+               value = "autre.index">
             </PersistentString>
             <PersistentString
-               value = "Controller.xScale">
+               value = "States.sharedInstance.enemyHealth">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ChooseBuy.(clickOnitem in _E6C7A294985064F51D278E33D4E38D19)(SKSpriteNode) -&gt; ():ChooseBuy.swift">
+         contextName = "Background.(addWalls in _CE36B35D1B740BCB427BC0001CA01D3C)() -&gt; ():Background.swift">
          <PersistentStrings>
             <PersistentString
-               value = "item.texture?.description">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Hud.addHealth(Int) -&gt; ():Hud.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "hl.position">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AppDelegate.applicationWillResignActive(UIApplication) -&gt; ():AppDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "(controller.view as! SKView).scene!.paused">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AppDelegate.applicationDidBecomeActive(UIApplication) -&gt; ():AppDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "(controller.view as! SKView).scene!.paused ">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Controller.paymentQueue(SKPaymentQueue, updatedTransactions : [SKPaymentTransaction]) -&gt; ():Controller.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "prodId">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "static IconsBolt.setSelect() -&gt; ():IconsBolt.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "IconsBolt.Bolt[&quot;status&quot;]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Controller.productsRequest(SKProductsRequest, didReceiveResponse : SKProductsResponse) -&gt; ():Controller.swift">
-      </ContextState>
-      <ContextState
-         contextName = "Buy.createBoltButton(Bool) -&gt; ():Buy.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "empyButton">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Singleplay.(repeatGame in _AE2BF829B8C1A12C287EC699B3E404B5)() -&gt; ():Singleplay.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UIScreen.mainScreen().bounds.height">
-            </PersistentString>
-            <PersistentString
-               value = "player.position">
-            </PersistentString>
-            <PersistentString
-               value = "Controller.yScale">
-            </PersistentString>
-            <PersistentString
-               value = "Controller.xScale">
-            </PersistentString>
-            <PersistentString
-               value = "UIScreen.mainScreen().bounds.width">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ElementStatus.Dick.unsafeMutableAddressor:ElementStatus.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "Dick">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Controller.viewDidLoad() -&gt; ():Controller.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UIScreen.mainScreen().bounds.width">
-            </PersistentString>
-            <PersistentString
-               value = "Controller.yScale">
-            </PersistentString>
-            <PersistentString
-               value = "Controller.xScale">
-            </PersistentString>
-            <PersistentString
-               value = "UIScreen.mainScreen().bounds.height">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ChooseBuy.load([String : AnyObject]) -&gt; ():ChooseBuy.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "elem[&quot;status&quot;]as! Int64">
-            </PersistentString>
-            <PersistentString
-               value = "i">
-            </PersistentString>
-            <PersistentString
-               value = "elem[&quot;status&quot;]">
-            </PersistentString>
-            <PersistentString
-               value = "j">
-            </PersistentString>
-            <PersistentString
-               value = "iconMass">
+               value = "UIScreen.mainScreen().bounds">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

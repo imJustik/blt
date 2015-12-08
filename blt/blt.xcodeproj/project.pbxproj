@@ -13,7 +13,6 @@
 		4507AD8F1C00D067005EB464 /* ElementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4507AD8E1C00D067005EB464 /* ElementStatus.swift */; };
 		4520CFC91C0DD6B400BF0238 /* ConnectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4520CFC81C0DD6B400BF0238 /* ConnectMenu.swift */; };
 		452435101C085D4B00C63F68 /* BuyLifes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524350F1C085D4B00C63F68 /* BuyLifes.swift */; };
-		4541BED41C045098000F1C56 /* ChangeSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541BED31C045098000F1C56 /* ChangeSize.swift */; };
 		4547BCB41BFDBB6700B75D4E /* ChooseBuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547BCB31BFDBB6700B75D4E /* ChooseBuy.swift */; };
 		4547BCB61BFDF29000B75D4E /* IconsBolt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547BCB51BFDF29000B75D4E /* IconsBolt.swift */; };
 		4547BCB81BFF418D00B75D4E /* IconsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547BCB71BFF418D00B75D4E /* IconsWindow.swift */; };
@@ -51,6 +50,7 @@
 		458B2E1C1BF5DF22009DCC61 /* BgTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B2E1B1BF5DF22009DCC61 /* BgTypes.swift */; };
 		458B2E1E1BF5F6D7009DCC61 /* PlayerTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B2E1D1BF5F6D7009DCC61 /* PlayerTypes.swift */; };
 		458B2E831BF622EB009DCC61 /* Grid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 458B2E821BF622EB009DCC61 /* Grid.atlas */; };
+		45A3EFD41C15B121003E4FB5 /* Girl.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45A3EFD31C15B121003E4FB5 /* Girl.atlas */; };
 		45F8BC241BF8AC04005D17DF /* SinglePauseMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8BC231BF8AC04005D17DF /* SinglePauseMenu.swift */; };
 		45F8BC261BF8B28F005D17DF /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8BC251BF8B28F005D17DF /* Hud.swift */; };
 		45F8BC281BFB0EC0005D17DF /* SingleGameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8BC271BFB0EC0005D17DF /* SingleGameOver.swift */; };
@@ -65,7 +65,6 @@
 		4507AD8E1C00D067005EB464 /* ElementStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementStatus.swift; sourceTree = "<group>"; };
 		4520CFC81C0DD6B400BF0238 /* ConnectMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectMenu.swift; sourceTree = "<group>"; };
 		4524350F1C085D4B00C63F68 /* BuyLifes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyLifes.swift; sourceTree = "<group>"; };
-		4541BED31C045098000F1C56 /* ChangeSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeSize.swift; sourceTree = "<group>"; };
 		4547BCB31BFDBB6700B75D4E /* ChooseBuy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuy.swift; sourceTree = "<group>"; };
 		4547BCB51BFDF29000B75D4E /* IconsBolt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconsBolt.swift; sourceTree = "<group>"; };
 		4547BCB71BFF418D00B75D4E /* IconsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconsWindow.swift; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 		458B2E1B1BF5DF22009DCC61 /* BgTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BgTypes.swift; sourceTree = "<group>"; };
 		458B2E1D1BF5F6D7009DCC61 /* PlayerTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTypes.swift; sourceTree = "<group>"; };
 		458B2E821BF622EB009DCC61 /* Grid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Grid.atlas; sourceTree = "<group>"; };
+		45A3EFD31C15B121003E4FB5 /* Girl.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Girl.atlas; sourceTree = "<group>"; };
 		45B6E7CD1BFB2A720053AD0A /* Futura Md BT Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura Md BT Bold.ttf"; sourceTree = "<group>"; };
 		45B6E7CE1BFB2A720053AD0A /* Futura Md BT Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura Md BT Medium.ttf"; sourceTree = "<group>"; };
 		45F8BC231BF8AC04005D17DF /* SinglePauseMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePauseMenu.swift; sourceTree = "<group>"; };
@@ -174,6 +174,7 @@
 		459151C21BF4AFAD005C4FF7 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				45A3EFD31C15B121003E4FB5 /* Girl.atlas */,
 				458B2E821BF622EB009DCC61 /* Grid.atlas */,
 				458B2E051BF4DDF4009DCC61 /* culer.atlas */,
 				458B2E061BF4DDF4009DCC61 /* dick.atlas */,
@@ -253,7 +254,6 @@
 				4547BCB71BFF418D00B75D4E /* IconsWindow.swift */,
 				4507AD8C1BFFC720005EB464 /* ProductsType.swift */,
 				4507AD8E1C00D067005EB464 /* ElementStatus.swift */,
-				4541BED31C045098000F1C56 /* ChangeSize.swift */,
 			);
 			name = State;
 			path = blt/State;
@@ -329,6 +329,7 @@
 				458B2E0D1BF4DDF4009DCC61 /* Rotation_small.atlas in Resources */,
 				458B2E0C1BF4DDF4009DCC61 /* printer.atlas in Resources */,
 				458B2E041BF4DB39009DCC61 /* Assets.xcassets in Resources */,
+				45A3EFD41C15B121003E4FB5 /* Girl.atlas in Resources */,
 				458B2E0A1BF4DDF4009DCC61 /* culer.atlas in Resources */,
 				458B2E831BF622EB009DCC61 /* Grid.atlas in Resources */,
 				458B2E0B1BF4DDF4009DCC61 /* dick.atlas in Resources */,
@@ -350,7 +351,6 @@
 				452435101C085D4B00C63F68 /* BuyLifes.swift in Sources */,
 				458B2DFE1BF4DA0E009DCC61 /* About.swift in Sources */,
 				45F8BC261BF8B28F005D17DF /* Hud.swift in Sources */,
-				4541BED41C045098000F1C56 /* ChangeSize.swift in Sources */,
 				4567A8131C0DBF16006C6472 /* MultiplayerEnd.swift in Sources */,
 				458B2E151BF5D9B0009DCC61 /* BitMask.swift in Sources */,
 				458B2DFA1BF4D70F009DCC61 /* GameObjects.swift in Sources */,

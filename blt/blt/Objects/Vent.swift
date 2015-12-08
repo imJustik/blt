@@ -15,10 +15,10 @@ class Vent: GameObjects {
         let path = CGPathCreateMutable()
         
         //Создается физическое тело по форме верха форточки
-        CGPathMoveToPoint(path, nil, 3 - offsetX, 78 - offsetY);
-        CGPathAddLineToPoint(path, nil, 73 - offsetX, 120 - offsetY);
-        CGPathAddLineToPoint(path, nil, 73 - offsetX, 115 - offsetY);
-        CGPathAddLineToPoint(path, nil, 3 - offsetX, 73 - offsetY);
+        CGPathMoveToPoint(path, nil, (3 - offsetX) * Controller.xScale, (78 - offsetY) * Controller.yScale);
+        CGPathAddLineToPoint(path, nil, (73 - offsetX) * Controller.xScale, (120 - offsetY) * Controller.yScale);
+        CGPathAddLineToPoint(path, nil, (73 - offsetX) * Controller.xScale, (115 - offsetY) * Controller.yScale);
+        CGPathAddLineToPoint(path, nil, (3 - offsetX) * Controller.xScale, (73 - offsetY) * Controller.yScale);
         
         CGPathCloseSubpath(path);
         
@@ -43,11 +43,12 @@ class Vent: GameObjects {
         vent.addChild(vent1)
         addChild(vent)
         
+        Controller.changeSize(top)
         top.position = CGPoint(x: vent.position.x-12 * xScaleFactor, y: vent.position.y+21 * yScaleFactor)
         top.name = "top"
         top.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: top.frame.size.width/10, height: top.frame.size.height), center: CGPoint(x: CGRectGetMidX(top.frame), y: CGRectGetMidY(top.frame)))
         top.physicsBody?.dynamic = false
-        top.zPosition = 7
+        top.zPosition = 6
         addChild(top)
     }
     func closeGrid(){

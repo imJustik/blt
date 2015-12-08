@@ -10,21 +10,23 @@ class ConnectMenu: SKNode {
         
         let goLabel = SKLabelNode(fontNamed: "Futura Md BT Bold")
         goLabel.text = "CONNECTING"
+        goLabel.fontSize *= Controller.xScale
         goLabel.position = CGPoint(x: 0, y: CGRectGetMidY(menu.frame)/3)
         menu.addChild(goLabel)
         
         let pauseLabel = SKSpriteNode(imageNamed: "Me enemy")
-        pauseLabel.position = CGPoint(x: 0, y: goLabel.position.y - 30)
+        Controller.changeSize(pauseLabel)
+        pauseLabel.position = CGPoint(x: 0, y: goLabel.position.y - 30*Controller.yScale)
         menu.addChild(pauseLabel)
         
         let scoreLabel = SKLabelNode(text: "READY")
-        scoreLabel.position = CGPoint(x: pauseLabel.position.x - 60, y: pauseLabel.position.y - 45)
-        scoreLabel.fontSize = 25
+        scoreLabel.position = CGPoint(x: pauseLabel.position.x - 60*Controller.xScale, y: pauseLabel.position.y - 45*Controller.yScale)
+        scoreLabel.fontSize = 25 * Controller.xScale
         scoreLabel.fontName = "Futura Md BT Bold"
         menu.addChild(scoreLabel)
         
         let recordLabel = SKLabelNode(text: "...")
-        recordLabel.position = CGPoint(x: pauseLabel.position.x + 55, y: pauseLabel.position.y - 45)
+        recordLabel.position = CGPoint(x: pauseLabel.position.x + 55*Controller.xScale, y: pauseLabel.position.y - 45*Controller.yScale)
         recordLabel.fontName = "Futura Md BT Bold"
         menu.addChild(recordLabel)
                 

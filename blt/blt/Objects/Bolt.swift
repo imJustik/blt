@@ -16,7 +16,7 @@ class Bolt: GameObjects {
         if States.sharedInstance.boltType != BoltTypes.Dick {
             physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height / (2 * Controller.yScale))}
         else {
-            physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height / (4 * Controller.xScale))
+            physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height / (4 * Controller.yScale))
             sprite.setScale(0.92)
         }
         self.physicsBody!.velocity = impulse

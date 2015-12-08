@@ -33,6 +33,9 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
         
         currentHealth = maxHealth
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("appBecomeActive:"), name:UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("willResignActive:"), name:UIApplicationWillResignActiveNotification, object: nil)
+        
         //Отправляем пакет,сообщяюший что игнрок загрузился
         let myStruct = Packet(name: "ready", index: 3, numberOfPackets: 1)
         EasyGameCenter.sendDataToAllPlayers(myStruct.archive(), modeSend: .Reliable)
@@ -45,7 +48,7 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
     func createBolt()
     {
         bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - (100*Controller.xScale)), impulse: CGVector(dx:
-            115 * (Controller.xScale*Controller.scaleImpulse), dy: 0))
+            115 * Controller.xScale, dy: 0))
         if States.sharedInstance.boltType == BoltTypes.Dick{
             bolt!.sprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(States.sharedInstance.dickFrames, timePerFrame: 0.075, resize: false, restore: false)), withKey: "dick")
             
@@ -220,6 +223,30 @@ class Multiplay: SKScene, SKPhysicsContactDelegate {
         }
         
     }
+    func appBecomeActive(notification : NSNotification) {
+        if win == nil {
+            win = MultiplayerEnd(flag: false) //отобразим сцену победы
+            Controller.timerCreateBolt?.invalidate()
+            Controller.timerCreateBolt = nil
+            Multiplay.hud.removeFromParent()
+            addChild(win!)
+            let myStruct = Packet(name: "enemyExit", index: 2, numberOfPackets: 1)
+            EasyGameCenter.sendDataToAllPlayers(myStruct.archive(), modeSend: .Reliable)
+        }
+    }
+    
+    func willResignActive(notification : NSNotification){
+        if win == nil {
+            win = MultiplayerEnd(flag: false) //отобразим сцену победы
+            Controller.timerCreateBolt?.invalidate()
+            Controller.timerCreateBolt = nil
+            Multiplay.hud.removeFromParent()
+            addChild(win!)
+            let myStruct = Packet(name: "enemyExit", index: 2, numberOfPackets: 1)
+            EasyGameCenter.sendDataToAllPlayers(myStruct.archive(), modeSend: .Reliable)
+        }
+    }
+
     
     class func changeEnemyHealth(){
         hud.removeEnemyHealth()

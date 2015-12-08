@@ -21,7 +21,7 @@ class Singleplay: SKScene, SKPhysicsContactDelegate, UIApplicationDelegate {
         Controller.timerCreateBolt = nil
         States.sharedInstance.score = 0
         self.name = "singleplay"
-        physicsWorld.gravity = CGVector(dx: 0, dy: -2)
+        physicsWorld.gravity = CGVector(dx: 0, dy: -2 * Controller.yScale)
         addChild(background)
         addChild(player)
         player.startGame()
@@ -45,7 +45,7 @@ class Singleplay: SKScene, SKPhysicsContactDelegate, UIApplicationDelegate {
     func createBolt()
     {
         bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - (100*Controller.xScale)), impulse: CGVector(dx:
-            115 * (Controller.xScale*Controller.scaleImpulse), dy: 0))
+            115 * Controller.xScale, dy: 0))
         if States.sharedInstance.boltType == BoltTypes.Dick{
         bolt!.sprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(States.sharedInstance.dickFrames, timePerFrame: 0.075, resize: false, restore: false)), withKey: "dick")
             
