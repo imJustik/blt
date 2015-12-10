@@ -4,6 +4,6 @@ class RootView: SKView {
     override func layoutSubviews() {
            //  self.showsFPS = true
          //   self.showsNodeCount = true
-       self.showsPhysics = true
+      //self.showsPhysics = true
     }
 }

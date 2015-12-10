@@ -47,6 +47,7 @@ class Vent: GameObjects {
         top.position = CGPoint(x: vent.position.x-12 * xScaleFactor, y: vent.position.y+21 * yScaleFactor)
         top.name = "top"
         top.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: top.frame.size.width/10, height: top.frame.size.height), center: CGPoint(x: CGRectGetMidX(top.frame), y: CGRectGetMidY(top.frame)))
+        top.setScale(0.9)
         top.physicsBody?.dynamic = false
         top.zPosition = 6
         addChild(top)

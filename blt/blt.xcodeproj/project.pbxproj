@@ -51,6 +51,7 @@
 		458B2E1E1BF5F6D7009DCC61 /* PlayerTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B2E1D1BF5F6D7009DCC61 /* PlayerTypes.swift */; };
 		458B2E831BF622EB009DCC61 /* Grid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 458B2E821BF622EB009DCC61 /* Grid.atlas */; };
 		45A3EFD41C15B121003E4FB5 /* Girl.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45A3EFD31C15B121003E4FB5 /* Girl.atlas */; };
+		45A3EFD61C170530003E4FB5 /* Girl_cicle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45A3EFD51C170530003E4FB5 /* Girl_cicle.atlas */; };
 		45F8BC241BF8AC04005D17DF /* SinglePauseMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8BC231BF8AC04005D17DF /* SinglePauseMenu.swift */; };
 		45F8BC261BF8B28F005D17DF /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8BC251BF8B28F005D17DF /* Hud.swift */; };
 		45F8BC281BFB0EC0005D17DF /* SingleGameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8BC271BFB0EC0005D17DF /* SingleGameOver.swift */; };
@@ -103,6 +104,7 @@
 		458B2E1D1BF5F6D7009DCC61 /* PlayerTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTypes.swift; sourceTree = "<group>"; };
 		458B2E821BF622EB009DCC61 /* Grid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Grid.atlas; sourceTree = "<group>"; };
 		45A3EFD31C15B121003E4FB5 /* Girl.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Girl.atlas; sourceTree = "<group>"; };
+		45A3EFD51C170530003E4FB5 /* Girl_cicle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Girl_cicle.atlas; sourceTree = "<group>"; };
 		45B6E7CD1BFB2A720053AD0A /* Futura Md BT Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura Md BT Bold.ttf"; sourceTree = "<group>"; };
 		45B6E7CE1BFB2A720053AD0A /* Futura Md BT Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura Md BT Medium.ttf"; sourceTree = "<group>"; };
 		45F8BC231BF8AC04005D17DF /* SinglePauseMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePauseMenu.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		459151C21BF4AFAD005C4FF7 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				45A3EFD51C170530003E4FB5 /* Girl_cicle.atlas */,
 				45A3EFD31C15B121003E4FB5 /* Girl.atlas */,
 				458B2E821BF622EB009DCC61 /* Grid.atlas */,
 				458B2E051BF4DDF4009DCC61 /* culer.atlas */,
@@ -326,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A3EFD61C170530003E4FB5 /* Girl_cicle.atlas in Resources */,
 				458B2E0D1BF4DDF4009DCC61 /* Rotation_small.atlas in Resources */,
 				458B2E0C1BF4DDF4009DCC61 /* printer.atlas in Resources */,
 				458B2E041BF4DB39009DCC61 /* Assets.xcassets in Resources */,

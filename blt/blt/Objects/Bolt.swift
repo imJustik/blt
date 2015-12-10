@@ -39,9 +39,10 @@ class Bolt: GameObjects {
     override func collision(obj: SKNode) -> Bool {
         //self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 2.5))
         self.physicsBody?.applyImpulse(CGVector(dx: 0.5 * Controller.xScale, dy: 1.45 * Controller.yScale ))
-        //self.physicsBody?.applyImpulse(CGVector(dx: 3.2, dy: 4))
         return true
-    }
+        }
+    //self.physicsBody?.applyImpulse(CGVector(dx: 3.2, dy: 4))
+    
     func rand() -> CGFloat
     {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)

@@ -28,7 +28,7 @@ class States {
     var boltType: String = BoltTypes.Bolt
     var bgType: String = BgTypes.Day
     var officeType: String = OfficeTypes.Office
-    var playerType: String = PlayerTypes.Men
+    var playerType: String = PlayerTypes.Girl
     
     //animation
     var typeFrames: [SKTexture] = []
@@ -93,12 +93,22 @@ class States {
     }
     
     func addAnimation(){
+        var numImages = 0
         //MARK: анимация печати
+        if playerType == PlayerTypes.Men {
         let typeAtlas = SKTextureAtlas(named: "Type_small.atlas") //загружаем анимации портала
-        var numImages = typeAtlas.textureNames.count
+        numImages = typeAtlas.textureNames.count
         for var i=0; i<numImages; i++ {
             let typeTextureName = "Type_\(i).png"
             typeFrames.append(typeAtlas.textureNamed(typeTextureName))
+        }
+        } else if playerType == PlayerTypes.Girl {
+            let typeAtlas = SKTextureAtlas(named: "Girl_cicle.atlas") //загружаем анимации портала
+            numImages = typeAtlas.textureNames.count
+            for var i=0; i<numImages; i++ {
+                let typeTextureName = "Girl_cicle_\(i).png"
+                typeFrames.append(typeAtlas.textureNamed(typeTextureName))
+        }
         }
         
         //MARK: анимация поворота

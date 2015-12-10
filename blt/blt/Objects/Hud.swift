@@ -55,7 +55,7 @@ class Hud: SKNode {
     }
     
     func addHealth(cnt: Int){
-        if cnt != 99999999 {
+        if cnt < 50 {
         var firstXPosition: Int = 0
         let indent = 10
         

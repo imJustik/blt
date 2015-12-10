@@ -203,7 +203,7 @@ class Controller: UIViewController, SKProductsRequestDelegate, SKPaymentTransact
                     case "com.treedeo.tenbolts":
                         States.sharedInstance.livesCount+=10
                         States.sharedInstance.saveState()
-                    case "com.treedeo.god": States.sharedInstance.livesCount = 99999999
+                    case "com.treedeo.god": States.sharedInstance.livesCount = 9999
                     default : print("не то купили")
                     }
                     Controller.elem?.status = 2

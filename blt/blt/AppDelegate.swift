@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADBannerViewDelegate  {
         return true
     }
     
-    
 //    func applicationDidEnterBackground(application: UIApplication) { //свернули
 //        if (controller.view as! SKView).scene is Singleplay {
 //        Controller.timerCreateBolt?.invalidate()

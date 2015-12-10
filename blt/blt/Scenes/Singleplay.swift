@@ -44,8 +44,13 @@ class Singleplay: SKScene, SKPhysicsContactDelegate, UIApplicationDelegate {
     
     func createBolt()
     {
+        if States.sharedInstance.playerType == PlayerTypes.Men {
         bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - (100*Controller.xScale)), impulse: CGVector(dx:
             115 * Controller.xScale, dy: 0))
+        } else if States.sharedInstance.playerType == PlayerTypes.Girl {
+            bolt = Bolt(pos: CGPoint(x:0, y:  self.frame.height - (100*Controller.xScale)), impulse: CGVector(dx:
+                115 * Controller.xScale, dy: 0))
+        }
         if States.sharedInstance.boltType == BoltTypes.Dick{
         bolt!.sprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(States.sharedInstance.dickFrames, timePerFrame: 0.075, resize: false, restore: false)), withKey: "dick")
             
